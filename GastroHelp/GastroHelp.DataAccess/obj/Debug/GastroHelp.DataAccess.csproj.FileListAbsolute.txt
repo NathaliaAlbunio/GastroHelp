@@ -1,0 +1,5 @@
+c:\users\aluno\documents\visual studio 2015\Projects\GastroHelp\GastroHelp.DataAccess\bin\Debug\GastroHelp.DataAccess.dll
+c:\users\aluno\documents\visual studio 2015\Projects\GastroHelp\GastroHelp.DataAccess\bin\Debug\GastroHelp.DataAccess.pdb
+c:\users\aluno\documents\visual studio 2015\Projects\GastroHelp\GastroHelp.DataAccess\obj\Debug\GastroHelp.DataAccess.csprojResolveAssemblyReference.cache
+c:\users\aluno\documents\visual studio 2015\Projects\GastroHelp\GastroHelp.DataAccess\obj\Debug\GastroHelp.DataAccess.dll
+c:\users\aluno\documents\visual studio 2015\Projects\GastroHelp\GastroHelp.DataAccess\obj\Debug\GastroHelp.DataAccess.pdb

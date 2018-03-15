@@ -1,0 +1,5 @@
+c:\users\aluno\documents\visual studio 2015\Projects\GastroHelp\GastroHelp.Models\bin\Debug\GastroHelp.Models.dll
+c:\users\aluno\documents\visual studio 2015\Projects\GastroHelp\GastroHelp.Models\bin\Debug\GastroHelp.Models.pdb
+c:\users\aluno\documents\visual studio 2015\Projects\GastroHelp\GastroHelp.Models\obj\Debug\GastroHelp.Models.csprojResolveAssemblyReference.cache
+c:\users\aluno\documents\visual studio 2015\Projects\GastroHelp\GastroHelp.Models\obj\Debug\GastroHelp.Models.dll
+c:\users\aluno\documents\visual studio 2015\Projects\GastroHelp\GastroHelp.Models\obj\Debug\GastroHelp.Models.pdb
