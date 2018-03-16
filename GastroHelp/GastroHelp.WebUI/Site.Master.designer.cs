@@ -7,22 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GastroHelp.WebUI
-{
-
-
-    public partial class SiteMaster
-    {
-
+namespace GastroHelp.WebUI {
+    
+    
+    public partial class SiteMaster {
+        
         /// <summary>
-        /// HeadContent control.
+        /// CssContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
-
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder CssContent;
+        
         /// <summary>
         /// MainContent control.
         /// </summary>
@@ -31,5 +29,14 @@ namespace GastroHelp.WebUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        
+        /// <summary>
+        /// ScriptsContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ScriptsContent;
     }
 }
