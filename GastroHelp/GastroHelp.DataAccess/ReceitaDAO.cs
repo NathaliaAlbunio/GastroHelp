@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GastroHelp.Models
+namespace GastroHelp.DataAccess
 {
-    public class Class1
+    public class ReceitaDAO
     {
     }
 }
