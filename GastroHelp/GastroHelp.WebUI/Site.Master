@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="<%= ResolveUrl("~/Content/bootstrap.min.css") %>" rel="stylesheet" />
-        
+    <link href="<%= ResolveUrl("~/Content/navbar-fixed-top.css") %>" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,24 +19,27 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <!-- BARRA  -->
-    <nav class="navbar navbar-default" style="background-color: #ff8a65;">
-        <!--navbar-default-->
-        <div class="container" style="background-color: #ff8a65;">
-            <div class="navbar-default">
-                <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-default">Pesquisar</button>
-                        <input type="text" class="form-control" placeholder="Pesquisa" />
-                    </div>
-                </form>
-                <ul class="nav navbar-nav navbar-left">
-                    <li><a href="#"><span class="glyphicon glyphicon-home"> HOME</span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-heart"> FAVORITOS</span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-bookmark"> SALVOS</span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-envelope"> MENSAGENS</span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span></a></li>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav text-center" style="width: 85%; text-align: center;">
+                    <li style="width: 100%;">
+                        <a style="width: 100%;" href="#"><b>GASTROHELP</b></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">GELADEIRA</a></li>
                 </ul>
             </div>
         </div>

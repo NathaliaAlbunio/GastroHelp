@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="CadastroDeReceita.aspx" />
     <Content Include="CadastroDeUsuario.aspx" />
     <Content Include="Content\AprovacaoDeReceitas.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -144,6 +145,7 @@
     <Content Include="Content\Inicial.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\MinhaGeladeira.css" />
+    <Content Include="Content\navbar-fixed-top.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\StyleSheet1.css" />
     <Content Include="Content\VisualizacaoDeReceita.css" />
@@ -160,7 +162,16 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Images\Cerejas.jpg" />
+    <Content Include="Images\MacarraoVegetariano.jpg" />
+    <Content Include="Images\Pão.jpg" />
+    <Content Include="Images\Salmão.jpg" />
+    <Content Include="Images\Sanduiche.jpg" />
+    <Content Include="Images\SanduicheVegano.jpg" />
+    <Content Include="Images\SorveteVegano.jpg" />
+    <Content Include="Images\Steak.jpg" />
     <Content Include="LoginDeUsuario.aspx" />
+    <Content Include="MinhaGeladeira.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -212,6 +223,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CadastroDeReceita.aspx.cs">
+      <DependentUpon>CadastroDeReceita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadastroDeReceita.aspx.designer.cs">
+      <DependentUpon>CadastroDeReceita.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CadastroDeUsuario.aspx.cs">
       <DependentUpon>CadastroDeUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,6 +253,13 @@
     </Compile>
     <Compile Include="LoginDeUsuario.aspx.designer.cs">
       <DependentUpon>LoginDeUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MinhaGeladeira.aspx.cs">
+      <DependentUpon>MinhaGeladeira.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MinhaGeladeira.aspx.designer.cs">
+      <DependentUpon>MinhaGeladeira.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
