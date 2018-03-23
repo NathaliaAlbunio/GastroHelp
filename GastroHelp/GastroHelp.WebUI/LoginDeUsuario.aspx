@@ -9,12 +9,13 @@
             <h5><b>Bem-vindo de volta ao GastroHelp®</b></h5>
             <form runat="server" method="post" action="#">
                 <!--NOME DE USUÁRIO-->
-                <div class="form-group">
+                 <div class="form-group">
                     <label for="username" class="cols-sm-2 control-label">Nome de Usuário</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
                             <asp:TextBox ID="TxtNomeUsuario" runat="server" CssClass="form-control" placeholder="Digite seu nome de usuário" />
+
                         </div>
                     </div>
                 </div>

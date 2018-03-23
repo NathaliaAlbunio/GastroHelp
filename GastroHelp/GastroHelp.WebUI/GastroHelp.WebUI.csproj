@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="AprovacaoDeReceita.aspx" />
     <Content Include="CadastroDeReceita.aspx" />
     <Content Include="CadastroDeUsuario.aspx" />
     <Content Include="Content\AprovacaoDeReceitas.css" />
@@ -148,6 +149,7 @@
     <Content Include="Content\navbar-fixed-top.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\StyleSheet1.css" />
+    <Content Include="Content\TelaPerfil.css" />
     <Content Include="Content\VisualizacaoDeReceita.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -163,6 +165,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\Cerejas.jpg" />
+    <Content Include="Images\dgfdsggfd.jpg" />
+    <Content Include="Images\geladeira.jpg" />
+    <Content Include="Images\LogoGastroHelp.png" />
     <Content Include="Images\MacarraoVegetariano.jpg" />
     <Content Include="Images\Pão.jpg" />
     <Content Include="Images\Salmão.jpg" />
@@ -208,6 +213,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="TelaPerfil.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
@@ -223,6 +229,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AprovacaoDeReceita.aspx.cs">
+      <DependentUpon>AprovacaoDeReceita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AprovacaoDeReceita.aspx.designer.cs">
+      <DependentUpon>AprovacaoDeReceita.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CadastroDeReceita.aspx.cs">
       <DependentUpon>CadastroDeReceita.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -268,6 +281,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TelaPerfil.aspx.cs">
+      <DependentUpon>TelaPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TelaPerfil.aspx.designer.cs">
+      <DependentUpon>TelaPerfil.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

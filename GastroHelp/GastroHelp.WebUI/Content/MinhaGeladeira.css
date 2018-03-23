@@ -1,1 +1,18 @@
-﻿
+﻿table, th, td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color:white;
+}
+
+th, td {
+    padding: 15px;
+}
+body{
+    background-color:coral;
+}
