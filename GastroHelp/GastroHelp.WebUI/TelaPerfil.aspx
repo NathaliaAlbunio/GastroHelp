@@ -16,5 +16,25 @@
                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53474/atom_profile_01.jpg">
             </div>
         </div>
-        </aside>
+    </aside>
+    <h2 class="text-center">Favoritos</h2>
+    <br />
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+            <div class="thumbnail">
+                <img class="img-responsive" src="Images/BoloDeBanana.jpg" />
+                <div class="caption">
+                    <h3>Bolo de banana</h3>
+                    <a href="#" class="btn btn-primary" role="button">Ver receita</a>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <img class="img-responsive" src="Images/BoloDeBanana.jpg" />
+                <div class="caption">
+                    <h3>Bolo de banana</h3>
+                    <a href="#" class="btn btn-primary" role="button">Ver receita</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>

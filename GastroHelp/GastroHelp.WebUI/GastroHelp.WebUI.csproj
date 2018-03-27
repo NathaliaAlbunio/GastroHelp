@@ -164,9 +164,11 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Images\BoloDeBanana.jpg" />
     <Content Include="Images\Cerejas.jpg" />
     <Content Include="Images\dgfdsggfd.jpg" />
     <Content Include="Images\geladeira.jpg" />
+    <Content Include="Images\imagemperfil.jpg" />
     <Content Include="Images\LogoGastroHelp.png" />
     <Content Include="Images\MacarraoVegetariano.jpg" />
     <Content Include="Images\Pão.jpg" />
