@@ -5,18 +5,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
         <div class="col-md-12 text-center">
-            <h2>MINHA GELADEIRA</h2>
+            <h3>MINHA GELADEIRA</h3>
             <hr />
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <img class="img-responsive" src="Images/geladeira.jpg" />
+        <div class="col-md-6 text-center">
+            <img src="<%= ResolveUrl("~/Images/geladeira2.png") %>" style="height: 450px;" />
         </div>
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Ingredientes:</h2>
+                    <h3>Ingredientes:</h3>
                 </div>
             </div>
             <div class="row">
@@ -58,20 +58,16 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <hr />
-        </div>
-    </div>
+    <hr />
     <div class="row">
         <div class="col-md-12 text-center">
-            <h3>POSSÍVEIS RECEITAS...</h3>
+            <h3 style="margin-top: 0px;">POSSÍVEIS RECEITAS...</h3>
             <hr />
         </div>
     </div>
     <div class="row">
         <div class="col-md-3">
-            <img class="img-responsive" src="Images/dgfdsggfd.jpg" />
+            <img class="img-responsive" src="<%= ResolveUrl("~/Images/dgfdsggfd.jpg") %>" />
         </div>
         <div class="col-md-9">
             <h3>Bolo de Laranja</h3>
