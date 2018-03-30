@@ -23,7 +23,7 @@ body {
     bottom: 0;
     opacity: 0;
     background: #000;
-    z-index: @zindex-sidebar-fixed - 1;
+    /*z-index: @zindex-sidebar-fixed - 1;*/
     -webkit-transition: visibility 0 linear .4s,opacity .4s cubic-bezier(.4,0,.2,1);
     -moz-transition: visibility 0 linear .4s,opacity .4s cubic-bezier(.4,0,.2,1);
     transition: visibility 0 linear .4s,opacity .4s cubic-bezier(.4,0,.2,1);
@@ -46,3 +46,6 @@ body {
     height: 25px;
     background: rgba(0, 0, 0, 0.1);
 }
+/*font-family: verdana;
+    font-size: 20px;*/
+

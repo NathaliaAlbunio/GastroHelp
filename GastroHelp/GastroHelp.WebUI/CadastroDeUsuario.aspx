@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="form-group ">
-                    <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" CssClass="btn btn-default btn-lg btn-block login-button" />
+                    <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" CssClass="btn btn-default btn-lg btn-block login-button" OnClick="btnCadastrar_Click" />
                 </div>
             </form>
         </div>
