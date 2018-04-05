@@ -13,13 +13,13 @@ namespace GastroHelp.WebUI {
     public partial class CadastroDeUsuario {
         
         /// <summary>
-        /// txtNome control.
+        /// TxtNome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNome;
+        protected global::System.Web.UI.WebControls.TextBox TxtNome;
         
         /// <summary>
         /// Txtemail control.

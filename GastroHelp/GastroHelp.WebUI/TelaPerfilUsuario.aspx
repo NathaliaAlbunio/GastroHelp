@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TelaPerfil.aspx.cs" Inherits="GastroHelp.WebUI.TelaPerfil" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TelaPerfilUsuario.aspx.cs" Inherits="GastroHelp.WebUI.TelaPerfil" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="CssContent" runat="server">
     <link href="<%= ResolveUrl("~/Content/TelaPerfil.css") %>" rel="stylesheet" />

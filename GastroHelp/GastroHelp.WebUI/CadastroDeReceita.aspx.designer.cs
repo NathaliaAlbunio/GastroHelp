@@ -31,13 +31,40 @@ namespace GastroHelp.WebUI {
         protected global::System.Web.UI.WebControls.TextBox txtIngredientes;
         
         /// <summary>
-        /// txtPreparo control.
+        /// txtModoPreparo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPreparo;
+        protected global::System.Web.UI.WebControls.TextBox txtModoPreparo;
+        
+        /// <summary>
+        /// chkFacil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkFacil;
+        
+        /// <summary>
+        /// chkMedio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkMedio;
+        
+        /// <summary>
+        /// chkDificil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkDificil;
         
         /// <summary>
         /// ddlCategoria control.

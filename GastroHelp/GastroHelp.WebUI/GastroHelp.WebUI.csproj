@@ -131,7 +131,12 @@
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\GastroHelp.Models\GastroHelp.Models.csproj">
+      <Project>{EC0C5609-1865-4645-85C9-45711972EE09}</Project>
+      <Name>GastroHelp.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="AprovacaoDeReceita.aspx" />
     <Content Include="CadastroDeReceita.aspx" />
@@ -220,7 +225,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
-    <Content Include="TelaPerfil.aspx" />
+    <Content Include="TelaPerfilUsuario.aspx" />
     <Content Include="TelaPerfilAdm.aspx" />
     <Content Include="TelaReceita.aspx" />
     <Content Include="Web.config" />
@@ -291,12 +296,12 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="TelaPerfil.aspx.cs">
-      <DependentUpon>TelaPerfil.aspx</DependentUpon>
+    <Compile Include="TelaPerfilUsuario.aspx.cs">
+      <DependentUpon>TelaPerfilUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TelaPerfil.aspx.designer.cs">
-      <DependentUpon>TelaPerfil.aspx</DependentUpon>
+    <Compile Include="TelaPerfilUsuario.aspx.designer.cs">
+      <DependentUpon>TelaPerfilUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="TelaPerfilAdm.aspx.cs">
       <DependentUpon>TelaPerfilAdm.aspx</DependentUpon>
@@ -312,7 +317,6 @@
     <Compile Include="TelaReceita.aspx.designer.cs">
       <DependentUpon>TelaReceita.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

@@ -33,7 +33,7 @@ namespace GastroHelp.DataAccess
                 }
             }
         }
-                                                                                                                                                        
+
         public List<Categoria> BuscarTodos()
         {
             var lst = new List<Categoria>();
@@ -59,21 +59,18 @@ namespace GastroHelp.DataAccess
 
                     foreach (DataRow row in dt.Rows)
                     {
-                        var categoria = new Categoria();
+                        var categoria = new Categoria()
                         {
                             Id_categoria = Convert.ToInt32(row["Id_categoria"]),
-                            Nome = row["nome"].ToString(),
+                            Nome = row["nome"].ToString()
                         };
 
                         lst.Add(categoria);
                     }
                 }
             }
+
+            return lst;
         }
     }
 }
-
-
-
-
-

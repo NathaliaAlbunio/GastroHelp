@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GastroHelp.Models
 {
-   public class Categoria
+    public class Categoria
     {
-        public int  Id_categoria { get; set; }
+        public int Id_categoria { get; set; }
         public string Nome { get; set; }
     }
 }

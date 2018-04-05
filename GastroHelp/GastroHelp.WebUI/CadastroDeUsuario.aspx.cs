@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GastroHelp.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -33,7 +34,7 @@ namespace GastroHelp.WebUI
 
         private void LimparCampos()
         {
-            txtNome.Text = string.Empty;
+            TxtNome.Text = string.Empty;
             TxtSenha.Text = string.Empty;
             TxtNomeUsuario.Text = string.Empty;
             TxtConfirmarSenha.Text = string.Empty;
@@ -44,7 +45,7 @@ namespace GastroHelp.WebUI
         private bool Validar()
         {
 
-            if (string.IsNullOrWhiteSpace(txtNome.Text))
+            if (string.IsNullOrWhiteSpace(TxtNome.Text))
                 return false;
 
             if (string.IsNullOrWhiteSpace(Txtemail.Text))
@@ -64,10 +65,9 @@ namespace GastroHelp.WebUI
         private void Salvar()
         {
             var obj = new Usuario();
-            obj.Nome = txtNome.Text;
-            obj.Senha = TxtSenha.Text;
-            obj.Confirmar_senha = TxtConfirmarSenha.Text;
-            obj.Email = Txtemail.Text;
+            obj.nome = TxtNome.Text;
+            obj.senha = TxtSenha.Text;
+            obj.email = Txtemail.Text;
 
             using (SqlConnection conn =
                 new SqlConnection(@"initial Catalog=GastroHelp;
@@ -79,10 +79,9 @@ namespace GastroHelp.WebUI
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
-                    cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = obj.Nome;
-                    cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = obj.Senha;
-                    cmd.Parameters.Add("@confirmar_senha", SqlDbType.VarChar).Value = obj.Confirmar_senha;
-                    cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = obj.Email;
+                    cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = obj.nome;
+                    cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = obj.senha;
+                    cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = obj.email;
 
                     conn.Open();
 

@@ -31,7 +31,7 @@
                         <div class="form-group">
                             <div class="col-md-8">
                                 <label for="preparo control-label">Preparo</label>
-                                <asp:TextBox ID="txtPreparo" runat="server" CssClass="form-control" placeholder="Passo 1" />
+                                <asp:TextBox ID="txtModoPreparo" runat="server" CssClass="form-control" placeholder="Passo 1" />
                             </div>
                         </div>
 
@@ -40,11 +40,11 @@
                             <div class="col-md-8">
                                 <label for="nivel control-label">Nível de Dificuldade</label>
                                 <br />
-                                <input type="radio" name="nivel" value="facil">
+                                <asp:CheckBox ID="chkFacil" runat="server" />
                                 Fácil<br>
-                                <input type="radio" name="nivel" value="medio">
+                                <asp:CheckBox ID="chkMedio" runat="server" />
                                 Médio<br>
-                                <input type="radio" name="nivel" value="dificil">
+                                <asp:CheckBox ID="chkDificil" runat="server" />
                                 Díficil
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                         <div class="form-group">
                             <div class="col-md-1">
                                 <label for="rendimento control-label">Rendimento</label>
-                                <asp:TextBox ID="txtRendimento" runat="server" CssClass="form-control" placeholder=""></asp:TextBox> 
+                                <asp:TextBox ID="txtRendimento" runat="server" CssClass="form-control" placeholder=""></asp:TextBox>
                             </div>
                             <div class="col-md-2">
                                 <h5>Porções</h5>

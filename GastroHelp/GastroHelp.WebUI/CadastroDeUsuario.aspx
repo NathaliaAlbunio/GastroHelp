@@ -15,7 +15,7 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
                             <%--<input type="text" class="form-control" name="name" id="name" placeholder="Digite seu nome" />--%>
-                            <asp:TextBox ID="txtNome" runat="server" CssClass="form-control" placeholder="Digite seu nome" />
+                            <asp:TextBox ID="TxtNome" runat="server" CssClass="form-control" placeholder="Digite seu nome" />
                         </div>
                     </div>
                 </div>
