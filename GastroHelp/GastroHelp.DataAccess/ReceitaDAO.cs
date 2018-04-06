@@ -25,14 +25,14 @@ namespace GastroHelp.DataAccess
                 {
                     cmd.Connection = conn;
 
-                    cmd.Parameters.Add("@usuario", SqlDbType.Int).Value = obj.usuario;
+                    cmd.Parameters.Add("@usuario", SqlDbType.Int).Value = obj.Usuario;
                     cmd.Parameters.Add("@nivel_dificuldade", SqlDbType.VarChar).Value = obj.nivel_dificuldade;
                     cmd.Parameters.Add("@ingredientes", SqlDbType.VarChar).Value = obj.ingredientes;
                     cmd.Parameters.Add("@modo_preparo", SqlDbType.VarChar).Value = obj.modo_preparo;
                     cmd.Parameters.Add("@nome_rec", SqlDbType.VarChar).Value = obj.nome_rec;
                     cmd.Parameters.Add("@rendimento", SqlDbType.VarChar).Value = obj.rendimento;
                     cmd.Parameters.Add("@dica", SqlDbType.VarChar).Value = obj.dica;
-                    cmd.Parameters.Add("@categoria", SqlDbType.Int).Value = obj.categoria;
+                    cmd.Parameters.Add("@categoria", SqlDbType.Int).Value = obj.Categoria;
                     cmd.Parameters.Add("@publicada", SqlDbType.Bit).Value = obj.publicada;
 
                     conn.Open();
@@ -69,10 +69,39 @@ namespace GastroHelp.DataAccess
 
                     foreach (DataRow row in dt.Rows)
                     {
-                       //parei aqui risos
+                        var receita = new Receita()
+                        {
+                            id_receita = Convert.ToInt32(row["id_receita"]),
+                            publicada = Convert.ToBoolean(row["Categoria"]),
+                            nivel_dificuldade = row["nivel_dificuldade"].ToString(),
+                            ingredientes = row["ingredientes"].ToString(),
+                            modo_preparo = row["modo_preparo"].ToString(),
+                            nome_rec = row["nome_rec"].ToString(),
+                            rendimento = row["rendimento"].ToString(),
+                            dica = row["dica"].ToString(),
+                            Categoria = new Categoria()
+                            {
+                                Id_categoria = Convert.ToInt32(row["Id_categoria"]),
+                                Nome = row["nome"].ToString()
+                            },
+                            Usuario = new Usuario()
+                            {
+                                id_usuario = Convert.ToInt32(row["id_usuario"]),
+                                nome = row["nome"].ToString(),
+                                senha = row["senha"].ToString(),
+                                email = row["email"].ToString(),
+                                nome_usuario = row["nome_usuario"].ToString(),
+                                moderador = Convert.ToBoolean(row["Categoria"]),
+                            }
+
+
+                        };
+                        lst.Add(receita);
                     }
                 }
             }
+
+            return lst;
         }
     }
 }

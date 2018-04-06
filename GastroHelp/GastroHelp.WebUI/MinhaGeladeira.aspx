@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MinhaGeladeira.aspx.cs" Inherits="GastroHelp.WebUI.MinhaGeladeira" %>
+﻿f<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MinhaGeladeira.aspx.cs" Inherits="GastroHelp.WebUI.MinhaGeladeira" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="CssContent" runat="server">
 </asp:Content>
