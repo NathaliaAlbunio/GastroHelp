@@ -3,10 +3,12 @@
     color: #fff;
     padding: 100px 25px;
 }
+
 .logo-small {
-    color:white;
+    color: white;
     font-size: 12px;
 }
+
 .container {
- background: #DDD;
+    background: #DDD;
 }
