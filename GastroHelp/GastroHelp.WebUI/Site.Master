@@ -52,6 +52,11 @@
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         </asp:ContentPlaceHolder>
     </div>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted"><%= DateTime.Now.Year %> © GastroHelp</p>
+      </div>
+    </footer>
     <script src="<%= ResolveUrl("~/Scripts/jquery-1.9.1.js") %>"></script>
     <script src="<%= ResolveUrl("~/Scripts/bootstrap.js") %>"></script>
     <asp:ContentPlaceHolder ID="ScriptsContent" runat="server">
