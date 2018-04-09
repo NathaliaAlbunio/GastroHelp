@@ -70,21 +70,21 @@ namespace GastroHelp.WebUI
         private void Salvar()
         {
             var obj = new Receita();
-            obj.nome_rec = txtNomeDaReceita.Text;
-            obj.ingredientes = txtIngredientes.Text;
-            obj.modo_preparo = txtModoPreparo.Text;
+            obj.Nome_Receita = txtNomeDaReceita.Text;
+            obj.Ingredientes = txtIngredientes.Text;
+            obj.Modo_Preparo = txtModoPreparo.Text;
             //nivel-- FALTA A MODEL "CATEGORIA" ANJO <-----------
 
             if (chkFacil.Checked)
-                obj.nivel_dificuldade = "Fácil";
+                obj.Nivel_Dificuldade = "Fácil";
             else if (chkMedio.Checked)
-                obj.nivel_dificuldade = "Médio";
+                obj.Nivel_Dificuldade = "Médio";
             else if (chkDificil.Checked)
-                obj.nivel_dificuldade = "Difícil";
+                obj.Nivel_Dificuldade = "Difícil";
 
-            obj.Categoria = new Categoria() { Id_categoria = Convert.ToInt32(ddlCategoria.SelectedValue) };
-            obj.dica = txtDicas.Text;
-            obj.rendimento = txtRendimento.Text;
+            obj.Categoria = new Categoria() { Id_Categoria = Convert.ToInt32(ddlCategoria.SelectedValue) };
+            obj.Dica = txtDicas.Text;
+            obj.Rendimento = txtRendimento.Text;
 
             using (SqlConnection conn =
                 new SqlConnection(@"initial Catalog=GastroHelp;
@@ -98,7 +98,7 @@ namespace GastroHelp.WebUI
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
-                    cmd.Parameters.Add("@id_usuario", SqlDbType.Int).Value = obj.Usuario.id_usuario;
+                    cmd.Parameters.Add("@id_usuario", SqlDbType.Int).Value = obj.Usuario.Id_Usuario;
 
                     //nivel   
                     if (chkFacil.Checked)
@@ -108,13 +108,13 @@ namespace GastroHelp.WebUI
                     else if (chkDificil.Checked)
                         cmd.Parameters.Add("@modo_preparo", SqlDbType.VarChar).Value = "Difícil";
 
-                    cmd.Parameters.Add("@ingredientes", SqlDbType.VarChar).Value = obj.ingredientes;
-                    cmd.Parameters.Add("@modo_preparo", SqlDbType.VarChar).Value = obj.modo_preparo;
-                    cmd.Parameters.Add("@nome_rec", SqlDbType.VarChar).Value = obj.nome_rec;
-                    cmd.Parameters.Add("@rendimento", SqlDbType.VarChar).Value = obj.rendimento;
-                    cmd.Parameters.Add("@dica", SqlDbType.VarChar).Value = obj.dica;
-                    cmd.Parameters.Add("@id_categoria", SqlDbType.Int).Value = obj.Categoria.Id_categoria;
-                    cmd.Parameters.Add("@publicada", SqlDbType.Bit).Value = obj.publicada;
+                    cmd.Parameters.Add("@ingredientes", SqlDbType.VarChar).Value = obj.Ingredientes;
+                    cmd.Parameters.Add("@modo_preparo", SqlDbType.VarChar).Value = obj.Modo_Preparo;
+                    cmd.Parameters.Add("@nome_rec", SqlDbType.VarChar).Value = obj.Nome_Receita;
+                    cmd.Parameters.Add("@rendimento", SqlDbType.VarChar).Value = obj.Rendimento;
+                    cmd.Parameters.Add("@dica", SqlDbType.VarChar).Value = obj.Dica;
+                    cmd.Parameters.Add("@id_categoria", SqlDbType.Int).Value = obj.Categoria.Id_Categoria;
+                    cmd.Parameters.Add("@publicada", SqlDbType.Bit).Value = obj.Publicada;
 
                     conn.Open();
 

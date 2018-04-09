@@ -26,6 +26,7 @@ create table categoria(
 
 create table receita (
 	id_receita integer identity(1,1) primary key,
+	id_categoria int references categoria (id_categoria), 
 	id_usuario integer references usuario,
 	nivel_dificuldade varchar(20),
 	ingredientes varchar(max),
@@ -33,6 +34,5 @@ create table receita (
 	nome_rec varchar(50),
 	rendimento varchar(20),
 	dica varchar(max),
-	id_categoria int references categoria (id_categoria), 
 	publicada bit not null default 0
 );

@@ -65,9 +65,9 @@ namespace GastroHelp.WebUI
         private void Salvar()
         {
             var obj = new Usuario();
-            obj.nome = TxtNome.Text;
-            obj.senha = TxtSenha.Text;
-            obj.email = Txtemail.Text;
+            obj.Nome = TxtNome.Text;
+            obj.Senha = TxtSenha.Text;
+            obj.Email = Txtemail.Text;
 
             using (SqlConnection conn =
                 new SqlConnection(@"initial Catalog=GastroHelp;
@@ -79,9 +79,9 @@ namespace GastroHelp.WebUI
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
-                    cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = obj.nome;
-                    cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = obj.senha;
-                    cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = obj.email;
+                    cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = obj.Nome;
+                    cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = obj.Senha;
+                    cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = obj.Email;
 
                     conn.Open();
 
