@@ -132,6 +132,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GastroHelp.DataAccess\GastroHelp.DataAccess.csproj">
+      <Project>{21A91CC9-0197-44E6-AF11-09A14CEF9736}</Project>
+      <Name>GastroHelp.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GastroHelp.Models\GastroHelp.Models.csproj">
       <Project>{EC0C5609-1865-4645-85C9-45711972EE09}</Project>
       <Name>GastroHelp.Models</Name>

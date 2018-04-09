@@ -1,4 +1,5 @@
-﻿using GastroHelp.Models;
+﻿using GastroHelp.DataAccess;
+using GastroHelp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,16 +15,7 @@ namespace GastroHelp.WebUI
         {
             if (IsPostBack)
                 return;
-
-            var lst = new List<Receita>();
-            lst.Add(new Receita() { Id_Receita = 1 });
-            lst.Add(new Receita() { Id_Receita = 2 });
-            lst.Add(new Receita() { Id_Receita = 3 });
-            lst.Add(new Receita() { Id_Receita = 4 });
-            lst.Add(new Receita() { Id_Receita = 5 });
-            lst.Add(new Receita() { Id_Receita = 6 });
-            lst.Add(new Receita() { Id_Receita = 7 });
-
+            var lst = new ReceitaDAO().BuscarTodos();
             gridView.DataSource = lst;
             gridView.DataBind();
         }
