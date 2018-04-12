@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadastroDeReceita.aspx.cs" Inherits="GastroHelp.WebUI.CadastroDeReceita" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" ValidateRequest="false"
+    CodeBehind="CadastroDeReceita.aspx.cs" Inherits="GastroHelp.WebUI.CadastroDeReceita" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="CssContent" runat="server">
     <link href="<%= ResolveUrl("~/Content/CadastroDeReceita.css") %>" rel="stylesheet" />
@@ -20,29 +21,33 @@
 
                     <%--  INGREDIENTES--%>
                     <div class="form-group">
+                        <div class="col-md-8 alert alert-warning" role="alert">
+                            Escreva um ingrediente por linha.
+                                <br />
+                            Não use hífen, numeração ou outro marcador para separar os ingredientes                                                                                             
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-md-8">
                             <label for="ingredientes control-label">Ingredientes</label>
                             <asp:TextBox ID="txtIngredientes" runat="server" CssClass="form-control" TextMode="MultiLine" />
-                            <div class="col-md-4 alert alert-warning" role="alert">
-                                Escreva um ingrediente por linha.
-                                <br />
-                                Não use hífen, numeração ou outro marcador para separar os ingredientes                                                                                             
-                            </div>
                         </div>
                     </div>
 
                     <%--  PREPARO --%>
-                        <div class="form-group">
-                            <div class="col-md-8">
-                                <label for="preparo control-label">Preparo</label>
-                                <asp:TextBox ID="txtModoPreparo" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
-                                <div class="col-md-4 alert alert-warning" role="alert">
-                                    Escreva um passo por linha.
+                    <div class="form-group">
+                        <div class="col-md-8 alert alert-warning" role="alert">
+                            Escreva um ingrediente por linha.
                                 <br />
-                                    Não use hífen, numeração ou outro marcador para separar os passos                                                                                              
-                                </div>
-                            </div>
+                            Não use hífen, numeração ou outro marcador para separar os ingredientes                                                                                             
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <label for="preparo control-label">Preparo</label>
+                            <asp:TextBox ID="txtModoPreparo" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                        </div>
+                    </div>
 
                     <%-- NÍVEL DE DIFICULDADE --%>
                     <div class="form-group">
@@ -60,7 +65,7 @@
 
                     <%-- CATEGORIA --%>
                     <div class="form-group">
-                        <div class="col-md-5">
+                        <div class="col-md-8">
                             <label for="categoria control-label">Categoria</label>
                             <asp:DropDownList ID="ddlCategoria" CssClass="form-control" runat="Server">
                                 <asp:ListItem Text="Doces" Value="doces" />
@@ -90,14 +95,19 @@
 
                     <%-- RENDIMENTO --%>
                     <div class="form-group">
-                        <div class="col-md-1">
+                        <div class="col-md-8">
                             <label for="rendimento control-label">Rendimento</label>
-                            <asp:TextBox ID="txtRendimento" runat="server" CssClass="form-control" placeholder=""></asp:TextBox>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <asp:TextBox ID="txtRendimento" runat="server" CssClass="form-control" Width="50px"></asp:TextBox>
+                                    </td>
+                                    <td style="padding-left: 10px;">
+                                        <span>Porções</span>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
-                        <div class="col-md-2">
-                            <h5>Porções</h5>
-                        </div>
-
                     </div>
 
                     <%-- BOTÃO --%>
@@ -114,4 +124,10 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptsContent" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#MainContent_txtIngredientes").cleditor({ height: 250 });
+            $("#MainContent_txtModoPreparo").cleditor({ height: 250 });
+        });
+    </script>
 </asp:Content>

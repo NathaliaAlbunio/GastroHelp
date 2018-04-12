@@ -151,7 +151,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Cadastro.css" />
     <Content Include="Content\CadastroDeReceita.css" />
+    <Content Include="Content\images\buttons.gif" />
+    <Content Include="Content\images\toolbar.gif" />
     <Content Include="Content\Inicial.css" />
+    <Content Include="Content\jquery.cleditor.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\MinhaGeladeira.css" />
     <Content Include="Content\navbar-fixed-top.css" />
@@ -200,6 +203,8 @@
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery.cleditor.js" />
+    <Content Include="Scripts\jquery.cleditor.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
