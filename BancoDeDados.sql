@@ -23,6 +23,15 @@ create table categoria (
 	data_cadastro datetime not null default getdate()
 );
 
+insert into categoria(nome)
+values
+('Doces'),
+('Salgados'),
+('Assados'),
+('Fritos'),
+('Cozidos');
+
+
 create table receita (
 	id_receita integer identity(1,1) primary key,
 	nome_rec varchar(250),
@@ -35,6 +44,7 @@ create table receita (
 	rendimento varchar(100),
 	dica varchar(max),
 	publicada bit not null default 0,
+	foto varchar(1000),
 	data_cadastro datetime not null default getdate()
 );
 
@@ -44,3 +54,19 @@ create table favorito (
 	id_usuario integer references usuario (id_usuario),
 	data_cadastro datetime not null default getdate()
 );
+
+SELECT * FROM usuario;
+
+insert into receita (nome_rec, resumo, id_categoria, id_usuario, nivel_dificuldade, ingredientes, modo_preparo, rendimento, dica, publicada, foto)
+select
+	nome_rec, resumo, id_categoria, id_usuario, nivel_dificuldade, ingredientes, modo_preparo, rendimento, dica, publicada, foto
+from receita where id_receita = 1;
+
+
+update receita set 
+	foto = 'Cerejas.jpg', 
+	resumo = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+= 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+
+
+select * from receita;

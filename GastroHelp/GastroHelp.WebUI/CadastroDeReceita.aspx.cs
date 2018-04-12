@@ -17,6 +17,7 @@ namespace GastroHelp.WebUI
             if (IsPostBack)
                 return;
 
+            CarregarCategoria();
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
@@ -31,12 +32,53 @@ namespace GastroHelp.WebUI
             }
         }
 
+        private void CarregarCategoria()
+        {
+            var lstCategoria = new List<Categoria>();
+
+            using (SqlConnection conn =
+                new SqlConnection(@"Initial Catalog=GastroHelp;
+                        Data Source=localhost;
+                        Integrated Security=SSPI;"))
+            {
+                string strSQL = @"SELECT * FROM categoria";
+
+                using (SqlCommand cmd = new SqlCommand(strSQL))
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = strSQL;
+                    var dataReader = cmd.ExecuteReader();
+                    var dt = new DataTable();
+                    dt.Load(dataReader);
+                    conn.Close();
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        var categoria = new Categoria()
+                        {
+
+                            Id_Categoria = Convert.ToInt32(row["id_categoria"]),
+                            Nome = row["nome"].ToString(),
+                        };
+                        lstCategoria.Add(categoria);
+                    }
+                }
+            }
+
+            ddlCategoria.DataTextField = "Nome";
+            ddlCategoria.DataValueField = "Id_Categoria";
+            ddlCategoria.DataSource = lstCategoria.OrderBy(o => o.Nome).ToList();
+
+            ddlCategoria.DataBind();
+        }
+
+
         private void LimparCampos()
         {
             txtNomeDaReceita.Text = string.Empty;
             txtIngredientes.Text = string.Empty;
             txtModoPreparo.Text = string.Empty;
-            //nivel
             ddlCategoria.ClearSelection();
             txtDicas.Text = string.Empty;
             txtRendimento.Text = string.Empty;
@@ -50,8 +92,6 @@ namespace GastroHelp.WebUI
 
             if (string.IsNullOrWhiteSpace(txtIngredientes.Text))
                 return false;
-
-            //NIVEL
 
             if (string.IsNullOrWhiteSpace(txtModoPreparo.Text))
                 return false;
@@ -73,13 +113,13 @@ namespace GastroHelp.WebUI
             obj.Nome_Receita = txtNomeDaReceita.Text;
             obj.Ingredientes = txtIngredientes.Text;
             obj.Modo_Preparo = txtModoPreparo.Text;
-            //nivel-- FALTA A MODEL "CATEGORIA" ANJO <-----------
+            obj.Usuario = new Usuario() { Id_Usuario = 1 };
 
-            if (chkFacil.Checked)
+            if (rbFacil.Checked)
                 obj.Nivel_Dificuldade = "Fácil";
-            else if (chkMedio.Checked)
+            else if (rbMedio.Checked)
                 obj.Nivel_Dificuldade = "Médio";
-            else if (chkDificil.Checked)
+            else if (rbDificil.Checked)
                 obj.Nivel_Dificuldade = "Difícil";
 
             obj.Categoria = new Categoria() { Id_Categoria = Convert.ToInt32(ddlCategoria.SelectedValue) };
@@ -91,22 +131,20 @@ namespace GastroHelp.WebUI
                     Data Source=localhost;
                     Integrated Security=SSPI;"))
             {
-                string strSQL = @"INSERT INTO receita (id_usuario, nivel_dificuldade, ingredientes, modo_preparo, nome_rec, rendimento, dica, id_categoria, publicada  )
-                                               VALUES (@id_usuario, @nivel_dificuldade, @ingredientes
-                                                      @modo_preparo, @nome_rec, @rendimento, @dica, @id_categoria, @publicada  )";
+                string strSQL = @"INSERT INTO receita (id_usuario, nivel_dificuldade, ingredientes, modo_preparo, nome_rec, rendimento, dica, id_categoria, publicada)
+                                  VALUES (@id_usuario, @nivel_dificuldade, @ingredientes, @modo_preparo, @nome_rec, @rendimento, @dica, @id_categoria, @publicada)";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
                     cmd.Parameters.Add("@id_usuario", SqlDbType.Int).Value = obj.Usuario.Id_Usuario;
 
-                    //nivel   
-                    if (chkFacil.Checked)
-                        cmd.Parameters.Add("@modo_preparo", SqlDbType.VarChar).Value = "Fácil";
-                    else if (chkMedio.Checked)
-                        cmd.Parameters.Add("@modo_preparo", SqlDbType.VarChar).Value = "Médio";
-                    else if (chkDificil.Checked)
-                        cmd.Parameters.Add("@modo_preparo", SqlDbType.VarChar).Value = "Difícil";
+                    if (rbFacil.Checked)
+                        cmd.Parameters.Add("@nivel_dificuldade", SqlDbType.VarChar).Value = "Fácil";
+                    else if (rbMedio.Checked)
+                        cmd.Parameters.Add("@nivel_dificuldade", SqlDbType.VarChar).Value = "Médio";
+                    else if (rbDificil.Checked)
+                        cmd.Parameters.Add("@nivel_dificuldade", SqlDbType.VarChar).Value = "Difícil";
 
                     cmd.Parameters.Add("@ingredientes", SqlDbType.VarChar).Value = obj.Ingredientes;
                     cmd.Parameters.Add("@modo_preparo", SqlDbType.VarChar).Value = obj.Modo_Preparo;
