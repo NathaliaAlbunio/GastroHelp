@@ -18,6 +18,46 @@
     <![endif]-->
     <asp:ContentPlaceHolder ID="CssContent" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        nav {
+            color: #fff !important;
+            background-color: #d9534f !important;
+            border-color: #d43f3a !important;
+        }
+
+        .navbar-default .navbar-nav > li > a {
+            color: #fff !important;
+        }
+
+        .navbar-default .navbar-brand {
+            color: #fff !important;
+        }
+
+        a {
+            color: #fff !important;
+        }
+
+        .footer {
+            color: #fff !important;
+            background-color: #d9534f !important;
+            border-color: #d43f3a !important;
+        }
+
+            .footer > .container {
+                color: #fff !important;
+                background-color: #d9534f !important;
+                border-color: #d43f3a !important;
+            }
+
+        .text-muted {
+            color: #fff !important;
+        }
+
+        .main-center {
+            background-color: #d9534f !important;
+            border-color: #d43f3a !important;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -34,15 +74,22 @@
                 </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav text-center" style="width: 97%; text-align: center;">
-                    <li style="width: 55%;" class="text-right">
+                <ul class="nav navbar-nav text-center">
+                    <li>
                         <a href="<%= ResolveUrl("~/Default.aspx") %>">
                             <b>GASTROHELP ®</b>
                         </a>
                     </li>
-                    <li style="width: 45%;" class="text-right">
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
                         <a href="<%= ResolveUrl("~/MinhaGeladeira.aspx") %>">
                             <b>GELADEIRA</b>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%= ResolveUrl("~/LoginDeUsuario.aspx") %>">
+                            <b>LOGIN</b>
                         </a>
                     </li>
                 </ul>
@@ -54,9 +101,9 @@
         </asp:ContentPlaceHolder>
     </div>
     <footer class="footer">
-      <div class="container">
-        <p class="text-muted"><%= DateTime.Now.Year %> © GastroHelp</p>
-      </div>
+        <div class="container">
+            <p class="text-muted"><%= DateTime.Now.Year %> © GastroHelp</p>
+        </div>
     </footer>
     <script src="<%= ResolveUrl("~/Scripts/jquery-1.9.1.js") %>"></script>
     <script src="<%= ResolveUrl("~/Scripts/bootstrap.js") %>"></script>

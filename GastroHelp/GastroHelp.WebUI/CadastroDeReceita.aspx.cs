@@ -81,6 +81,7 @@ namespace GastroHelp.WebUI
             txtModoPreparo.Text = string.Empty;
             ddlCategoria.ClearSelection();
             txtDicas.Text = string.Empty;
+            txtResumo.Text = string.Empty;
             txtRendimento.Text = string.Empty;
         }
 
@@ -94,6 +95,9 @@ namespace GastroHelp.WebUI
                 return false;
 
             if (string.IsNullOrWhiteSpace(txtModoPreparo.Text))
+                return false;
+
+            if (string.IsNullOrWhiteSpace(txtResumo.Text))
                 return false;
 
             if (string.IsNullOrWhiteSpace(ddlCategoria.SelectedValue))
@@ -113,6 +117,7 @@ namespace GastroHelp.WebUI
             obj.Nome_Receita = txtNomeDaReceita.Text;
             obj.Ingredientes = txtIngredientes.Text;
             obj.Modo_Preparo = txtModoPreparo.Text;
+            obj.Resumo = txtResumo.Text;
             obj.Usuario = new Usuario() { Id_Usuario = 1 };
 
             if (rbFacil.Checked)
@@ -131,8 +136,8 @@ namespace GastroHelp.WebUI
                     Data Source=localhost;
                     Integrated Security=SSPI;"))
             {
-                string strSQL = @"INSERT INTO receita (id_usuario, nivel_dificuldade, ingredientes, modo_preparo, nome_rec, rendimento, dica, id_categoria, publicada)
-                                  VALUES (@id_usuario, @nivel_dificuldade, @ingredientes, @modo_preparo, @nome_rec, @rendimento, @dica, @id_categoria, @publicada)";
+                string strSQL = @"INSERT INTO receita (id_usuario, resumo, nivel_dificuldade, ingredientes, modo_preparo, nome_rec, rendimento, dica, id_categoria, publicada)
+                                  VALUES (@id_usuario, @resumo, @nivel_dificuldade, @ingredientes, @modo_preparo, @nome_rec, @rendimento, @dica, @id_categoria, @publicada)";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
@@ -148,6 +153,7 @@ namespace GastroHelp.WebUI
 
                     cmd.Parameters.Add("@ingredientes", SqlDbType.VarChar).Value = obj.Ingredientes;
                     cmd.Parameters.Add("@modo_preparo", SqlDbType.VarChar).Value = obj.Modo_Preparo;
+                    cmd.Parameters.Add("@resumo", SqlDbType.VarChar).Value = obj.Resumo;
                     cmd.Parameters.Add("@nome_rec", SqlDbType.VarChar).Value = obj.Nome_Receita;
                     cmd.Parameters.Add("@rendimento", SqlDbType.VarChar).Value = obj.Rendimento;
                     cmd.Parameters.Add("@dica", SqlDbType.VarChar).Value = obj.Dica;

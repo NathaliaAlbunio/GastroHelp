@@ -7,9 +7,9 @@
     <div class="row main">
         <div class="main-login main-center">
             <h5><b>Bem-vindo de volta ao GastroHelp®</b></h5>
-            <form runat="server" method="post" action="#">
+            <form class="form-horizontal" runat="server" action="#">
                 <!--NOME DE USUÁRIO-->
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="username" class="cols-sm-2 control-label">Nome de Usuário</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
@@ -31,12 +31,22 @@
                 </div>
                 <!-- ENTRAR -->
                 <div class="form-group">
-                    <a>Criar conta</a> ou <a>Recuperar senha</a>
-                    <asp:Button ID="btnEntrar" runat="server" Text="Entrar" CssClass="btn btn-default btn-lg btn-block login-button" />
+                    <div class="col-md-12 text-center">
+                        <a href="<%= ResolveUrl("~/CadastroDeUsuario.aspx") %>" style="color: white; text-align: center;">Criar conta</a> ou <a style="color: white">Recuperar senha</a>
+                    </div>
+                </div>
+                <%--<div class="form-group">
+                    <div class="col-md-12 text-center">
+                        <asp:CheckBox ID="ckLembrarSenha" runat="server" />
+                        Lembrar senha
+                    </div>
+                </div>--%>
+                <div class="form-group">
+                    <div class="col-md-12 text-center">
+                        <asp:Button ID="btnEntrar" runat="server" Text="Entrar" CssClass="btn btn-default btn-lg btn-block login-button" />
+                    </div>
                 </div>
             </form>
         </div>
     </div>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ScriptsContent" runat="server">
 </asp:Content>

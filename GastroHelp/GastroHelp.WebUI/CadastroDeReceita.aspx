@@ -21,31 +21,31 @@
 
                     <%--  INGREDIENTES--%>
                     <div class="form-group">
-                        <div class="col-md-8 alert alert-warning" role="alert">
+<%--                        <div class="col-md-8 alert alert-warning" role="alert">
                             Escreva um ingrediente por linha.
                                 <br />
                             Não use hífen, numeração ou outro marcador para separar os ingredientes                                                                                             
-                        </div>
+                        </div>--%>
                     </div>
                     <div class="form-group">
                         <div class="col-md-8">
                             <label for="ingredientes control-label">Ingredientes</label>
-                            <asp:TextBox ID="txtIngredientes" runat="server" CssClass="form-control" TextMode="MultiLine" />
+                            <asp:TextBox ID="txtIngredientes" runat="server" CssClass="form-control" TextMode="MultiLine"  placeholder="Escreva aqui os ingredientes um por linha, e depois selecione a opção de marcadores para que fique em tópicos " />
                         </div>
                     </div>
 
                     <%--  PREPARO --%>
                     <div class="form-group">
-                        <div class="col-md-8 alert alert-warning" role="alert">
+<%--                        <div class="col-md-8 alert alert-warning" role="alert">
                             Escreva um ingrediente por linha.
                                 <br />
                             Não use hífen, numeração ou outro marcador para separar os ingredientes                                                                                             
-                        </div>
+                        </div>--%>
                     </div>
                     <div class="form-group">
                         <div class="col-md-8">
                             <label for="preparo control-label">Preparo</label>
-                            <asp:TextBox ID="txtModoPreparo" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox ID="txtModoPreparo" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="Escreva aqui os passos um por linha, e depois selecione a opção de marcadores numerados para que fique em tópicos "></asp:TextBox>
                         </div>
                     </div>
 
@@ -85,6 +85,15 @@
                             <input id="file" name="file" type="file" />
                         </div>
                     </div>
+
+                     <%-- RESUMO --%>
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <label id="lblResumo" runat="server" cv="control-label">Resumo</label>
+                            <asp:TextBox ID="txtResumo" runat="server" Rows="5" CssClass="form-control" placeholder="Escreva um breve resumo da sua receita. Exemplo: Esse bolo é feito com muito amor e chocolate " TextMode="MultiLine"></asp:TextBox>
+                        </div>
+                    </div>
+
                     <%-- DICAS --%>
                     <div class="form-group">
                         <div class="col-md-8">

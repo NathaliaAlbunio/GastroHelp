@@ -27,7 +27,7 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-primary btn-lg">
+                                        <button class="btn btn-danger btn-lg">
                                             <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                                         </button>
                                     </div>
@@ -50,7 +50,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg btn-block">
+                    <button class="btn btn-danger btn-lg btn-block">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         Buscar
                     </button>
@@ -78,7 +78,7 @@
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
             <p>
-                <button class="btn btn-primary">
+                <button class="btn btn-danger">
                     Ver mais...
                 </button>
             </p>
@@ -98,7 +98,7 @@
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
             <p>
-                <button class="btn btn-primary">
+                <button class="btn btn-danger">
                     Ver mais...
                 </button>
             </p>
