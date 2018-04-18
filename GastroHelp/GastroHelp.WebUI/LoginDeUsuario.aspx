@@ -43,7 +43,7 @@
                 </div>--%>
                 <div class="form-group">
                     <div class="col-md-12 text-center">
-                        <asp:Button ID="btnEntrar" runat="server" Text="Entrar" CssClass="btn btn-default btn-lg btn-block login-button" />
+                        <asp:Button ID="btnEntrar" runat="server" Text="Entrar" CssClass="btn btn-default btn-lg btn-block login-button" OnClick="btnEntrar_Click" />
                     </div>
                 </div>
             </form>

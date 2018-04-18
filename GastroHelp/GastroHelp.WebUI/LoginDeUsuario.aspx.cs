@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GastroHelp.DataAccess;
+using GastroHelp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,6 +16,22 @@ namespace GastroHelp.WebUI
 
         }
 
+        protected void btnEntrar_Click(object sender, EventArgs e)
+        {
+            var usuario = new Usuario();
+            usuario.Nome_Usuario = TxtNomeUsuario.Text;
+            usuario.Senha = TxtSenha.Text;
 
+            var obj = new UsuarioDAO().Logar(usuario);
+
+            if(obj == null)
+            {
+                Response.Redirect("LoginDeUsuario.aspx");
+            }
+            else
+            {
+                Response.Redirect("Default.aspx");
+            }
+        }
     }
 }

@@ -80,6 +80,9 @@
                             <b>GASTROHELP ®</b>
                         </a>
                     </li>
+                    <li>
+                        <input id="PesquisarReceita" class="form-control" />                      
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
