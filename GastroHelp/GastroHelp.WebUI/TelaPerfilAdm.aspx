@@ -73,8 +73,8 @@
                     PagerStyle-CssClass="pgr" style="vertical-align: baseline">
                     <Columns>
                         <asp:TemplateField HeaderText="Nome">
-                            <HeaderStyle Width="20%" />
-                            <ItemStyle Width="20%" />
+                            <HeaderStyle Width="50%" />
+                            <ItemStyle Width="50%" />
                             <ItemTemplate>
                                 <asp:HyperLink ID="lblNome" runat="server" 
                                     Text='<%# Bind("Nome_Receita") %>'></asp:HyperLink>
@@ -82,8 +82,8 @@
                         </asp:TemplateField>
 
                          <asp:TemplateField HeaderText="Usuario">
-                            <HeaderStyle Width="20%" />
-                            <ItemStyle Width="20%" />
+                            <HeaderStyle Width="50%" />
+                            <ItemStyle Width="50%" />
                             <ItemTemplate>
                                 <asp:HyperLink ID="lblUsuario" runat="server" 
                                     Text='<%# Bind("Usuario.Nome") %>'></asp:HyperLink>

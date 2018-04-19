@@ -1,6 +1,7 @@
 ﻿using GastroHelp.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -28,7 +29,22 @@ namespace GastroHelp.WebUI
 
                 LimparCampos();
 
+                try
+                {
+                    if (Enviarimg.HasFile)
+                    {
+                        var fileName = Path.GetFileName(Enviarimg.FileName);
+                        Enviarimg.SaveAs(Server.MapPath(string.Format("", fileName)));
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
                 Response.Redirect("~/Default.aspx");
+
             }
         }
 

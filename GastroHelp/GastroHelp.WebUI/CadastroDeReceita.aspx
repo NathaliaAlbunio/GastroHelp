@@ -81,8 +81,9 @@
                     <%-- IMAGEM --%>
                     <div class="form-group">
                         <div class="col-md-8">
-                            <label for="imagem control-label">Clique aqui para adicionar uma imagem!</label>
-                            <input id="file" name="file" type="file" />
+                            <asp:FileUpload ID="Enviarimg" runat="server" />
+                            <%--<label for="imagem control-label">Clique aqui para adicionar uma imagem!</label>
+                            <input id="file" name="file" type="file" />--%>
                         </div>
                     </div>
 

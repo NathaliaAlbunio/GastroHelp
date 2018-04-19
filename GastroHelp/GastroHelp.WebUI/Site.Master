@@ -50,7 +50,7 @@
             }
 
         .text-muted {
-            color: #fff !important;
+            color: #48D1CC !important;
         }
 
         .main-center {
@@ -80,9 +80,12 @@
                             <b>GASTROHELP ®</b>
                         </a>
                     </li>
-                    <li>
-                        <input id="PesquisarReceita" class="form-control" />                      
-                    </li>
+                  <form class="navbar-form navbar-left" action="/action_page.php">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search" name="Ex: Suco verde">
+                        </div>
+                        <button type="submit" class="btn btn-default">Pesquisar</button>
+                    </form>  
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>

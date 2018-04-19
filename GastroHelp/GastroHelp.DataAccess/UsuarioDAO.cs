@@ -148,7 +148,11 @@ namespace GastroHelp.DataAccess
 
                         };
                         lstReceitas.Add(receita);
+
                     }
+
+                    grdReceitasAprovacao.DataSource = lstReceitas;
+                    grdReceitasAprovacao.DataBind();
                 }
             }
         }
