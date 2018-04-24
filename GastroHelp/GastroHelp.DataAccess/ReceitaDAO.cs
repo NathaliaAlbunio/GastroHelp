@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace GastroHelp.DataAccess
 {
@@ -108,6 +109,70 @@ namespace GastroHelp.DataAccess
                                 FROM RECEITA R 
                                 INNER JOIN USUARIO U ON (U.ID_USUARIO = R.ID_USUARIO)
                                 INNER JOIN CATEGORIA C ON (C.ID_CATEGORIA = R.ID_CATEGORIA);";
+
+                using (SqlCommand cmd = new SqlCommand(strSQL))
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = strSQL;
+
+                    var dataReader = cmd.ExecuteReader();
+                    var dt = new DataTable();
+                    dt.Load(dataReader);
+                    conn.Close();
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        var receita = new Receita()
+                        {
+                            Id_Receita = Convert.ToInt32(row["ID_RECEITA"]),
+                            Nome_Receita = row["NOME_REC"].ToString(),
+                            Resumo = row["RESUMO"].ToString(),
+                            Categoria = new Categoria()
+                            {
+                                Id_Categoria = Convert.ToInt32(row["ID_CATEGORIA"]),
+                                Nome = row["NOME_CATEGORIA"].ToString()
+                            },
+                            Usuario = new Usuario()
+                            {
+                                Id_Usuario = Convert.ToInt32(row["ID_USUARIO"]),
+                                Nome = row["NOME_USUARIO"].ToString()
+                            },
+                            Nivel_Dificuldade = row["NIVEL_DIFICULDADE"].ToString(),
+                            Ingredientes = row["INGREDIENTES"].ToString(),
+                            Modo_Preparo = row["MODO_PREPARO"].ToString(),
+                            Rendimento = row["RENDIMENTO"].ToString(),
+                            Dica = row["DICA"].ToString(),
+                            DataCadastro = Convert.ToDateTime(row["DATA_CADASTRO"]),
+                            Publicada = Convert.ToBoolean(row["PUBLICADA"]),
+                            Foto = row["FOTO"].ToString()
+                        };
+                        lst.Add(receita);
+                    }
+
+                    return lst;
+                }
+            }
+        }
+
+        public List<Receita> BuscarPorIngredientes(List<string> ingredientes)
+        {
+            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=GastroHelp; Data Source=localhost; Integrated Security=SSPI;"))
+            {
+                var lst = new List<Receita>();
+                string strSQL = @"SELECT 
+	                                R.*,
+	                                U.NOME AS NOME_USUARIO,
+	                                C.NOME AS NOME_CATEGORIA
+                                FROM RECEITA R 
+                                INNER JOIN USUARIO U ON (U.ID_USUARIO = R.ID_USUARIO)
+                                INNER JOIN CATEGORIA C ON (C.ID_CATEGORIA = R.ID_CATEGORIA)
+                                WHERE 1=1";
+
+                foreach (var ingrediente in ingredientes)
+                {
+                    strSQL += string.Format(" AND R.INGREDIENTES LIKE '%{0}%'", ingrediente);
+                }
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {

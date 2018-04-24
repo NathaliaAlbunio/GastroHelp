@@ -50,7 +50,7 @@
             }
 
         .text-muted {
-            color: #48D1CC !important;
+            color: #fff !important;
         }
 
         .main-center {

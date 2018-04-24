@@ -108,53 +108,5 @@ namespace GastroHelp.DataAccess
                 }
             }
         }
-
-        private void CarregarReceitasAprovacao()
-        {
-            var lstReceitas = new List<Receita>();
-
-            using (SqlConnection conn =
-                new SqlConnection(@"Initial Catalog=GastroHelp;
-                        Data Source=localhost;
-                        Integrated Security=SSPI;"))
-            {
-                string strSQL = @"SELECT 
-                                      r.*,
-                                      c.nome as categoria
-                                  FROM receita r
-                                  INNER JOIN categoria c on (r.id_categoria = c.id_categoria)";
-
-                using (SqlCommand cmd = new SqlCommand(strSQL))
-                {
-                    conn.Open();
-                    cmd.Connection = conn;
-                    cmd.CommandText = strSQL;
-                    var dataReader = cmd.ExecuteReader();
-                    var dt = new DataTable();
-                    dt.Load(dataReader);
-                    conn.Close();
-
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        var receita = new Receita()
-                        {
-                            Id_Receita = Convert.ToInt32(row["id_receita"]),
-                            Nome_Receita = row["nome_rec"].ToString(),
-                            Usuario = new Usuario()
-                            {
-                                Id_Usuario = Convert.ToInt32(row["id_usuario"]),
-                                Nome = row["usuario"].ToString()
-                            },
-
-                        };
-                        lstReceitas.Add(receita);
-
-                    }
-
-                    grdReceitasAprovacao.DataSource = lstReceitas;
-                    grdReceitasAprovacao.DataBind();
-                }
-            }
-        }
     }
 }
