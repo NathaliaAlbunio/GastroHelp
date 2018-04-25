@@ -5,11 +5,11 @@
     <link href="<%= ResolveUrl("~/Content/CadastroDeReceita.css") %>" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container">
+    <div class="container" style="background-color:white;">
         <div class="col-md-12">
             <div class="main-login main-center">
-                <h1><b>Cadastro de Receita</b></h1>
-                <form class="form-horizontal center" runat="server">
+                <h1 ><b>Cadastro de Receita</b></h1>
+                <form class="form-horizontal center" runat="server" style="background-color:white;">
 
                     <!-- NOME DA RECEITA -->
                     <div class="form-group">
@@ -124,7 +124,7 @@
                     <div id=".botaodecoração">
                         <div class="form-group">
                             <div class="col-md-1">
-                                <asp:Button ID="btnCadastrarReceita" runat="server" type="button" class="btn btn-warning" Text="Cadastrar Receitar" OnClick="btnCadastrar_Click" />
+                                <asp:Button ID="btnCadastrarReceita" runat="server" type="button" class="btn btn-danger" Text="Cadastrar Receitar" OnClick="btnCadastrar_Click" />
                             </div>
                         </div>
                     </div>

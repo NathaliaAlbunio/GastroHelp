@@ -71,6 +71,7 @@
                 </button>
                 <a class="navbar-brand" href="<%= ResolveUrl("~/Default.aspx") %>">
                     <span class="glyphicon glyphicon-menu-hamburger" />
+
                 </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
@@ -88,6 +89,12 @@
                     </form>  
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="<%= ResolveUrl("~/CadastroDeReceita.aspx") %>">
+                            <b>RECEITA</b>
+                        </a>
+                    </li>
+
                     <li>
                         <a href="<%= ResolveUrl("~/MinhaGeladeira.aspx") %>">
                             <b>GELADEIRA</b>
