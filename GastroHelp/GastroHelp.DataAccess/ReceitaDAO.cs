@@ -158,7 +158,7 @@ namespace GastroHelp.DataAccess
 
         public List<Receita> BuscarPorIngredientes(List<string> ingredientes)
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=GastroHelp; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 var lst = new List<Receita>();
                 string strSQL = @"SELECT 

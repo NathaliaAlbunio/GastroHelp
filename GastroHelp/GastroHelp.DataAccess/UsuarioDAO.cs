@@ -72,7 +72,7 @@ namespace GastroHelp.DataAccess
 
         public Usuario Logar(Usuario obj)
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=GastroHelp; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"SELECT * FROM USUARIO WHERE NOME_USUARIO = @NOME_USUARIO AND SENHA = @SENHA";
 
