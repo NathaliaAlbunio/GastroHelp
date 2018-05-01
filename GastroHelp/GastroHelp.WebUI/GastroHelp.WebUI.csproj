@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AprovacaoDeReceita.aspx" />
+    <Content Include="BancoDeDados.sql" />
     <Content Include="CadastroDeReceita.aspx" />
     <Content Include="CadastroDeUsuario.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -175,6 +176,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\gastrohelp - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\gastrohelp - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\bolo-decorado-simples.jpg" />
     <Content Include="Images\BoloBonito.jpg" />

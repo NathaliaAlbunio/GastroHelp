@@ -1,6 +1,7 @@
 ﻿using GastroHelp.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,7 +11,7 @@ namespace GastroHelp.DataAccess
     {
         public void Inserir(Usuario obj)
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=GastroHelp; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"INSERT INTO USUARIO (NOME, SENHA, EMAIL, NOME_USUARIO, MODERADOR) 
                                   VALUES (@NOME, @SENHA, @EMAIL, @NOME_USUARIO, @MODERADOR);";
@@ -33,7 +34,7 @@ namespace GastroHelp.DataAccess
 
         public List<Usuario> BuscarTodos()
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog= GastroHelp; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 var lst = new List<Usuario>();
                 string strSQL = @"SELECT * FROM USUARIO;";

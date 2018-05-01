@@ -1,6 +1,7 @@
 ﻿using GastroHelp.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,7 +11,7 @@ namespace GastroHelp.DataAccess
     {
         public void Inserir(Categoria obj)
         {
-            using (SqlConnection conn = new SqlConnection(@"initial Catalog= GastroHelp; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"INSERT INTO CATEGORIA (NOME) VALUES (@NOME);";
 
@@ -28,7 +29,7 @@ namespace GastroHelp.DataAccess
 
         public List<Categoria> BuscarTodos()
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog= GastroHelp; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 var lst = new List<Categoria>();
                 string strSQL = @"SELECT * FROM CATEGORIA;";

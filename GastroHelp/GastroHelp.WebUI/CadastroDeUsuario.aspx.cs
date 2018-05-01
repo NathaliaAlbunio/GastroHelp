@@ -1,4 +1,5 @@
-﻿using GastroHelp.Models;
+﻿using GastroHelp.DataAccess;
+using GastroHelp.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -59,6 +60,7 @@ namespace GastroHelp.WebUI
 
             if (string.IsNullOrWhiteSpace(TxtConfirmarSenha.Text))
                 return false;
+
             return true;
         }
 
@@ -69,27 +71,7 @@ namespace GastroHelp.WebUI
             obj.Senha = TxtSenha.Text;
             obj.Email = Txtemail.Text;
 
-            using (SqlConnection conn =
-                new SqlConnection(@"initial Catalog=GastroHelp;
-                    Data Source=localhost;
-                    Integrated Security=SSPI;"))
-            {
-                string strSQL = @"INSERT INTO usuario (nome, senha, confirmar_senha, email)";
-
-                using (SqlCommand cmd = new SqlCommand(strSQL))
-                {
-                    cmd.Connection = conn;
-                    cmd.Parameters.Add("@nome", SqlDbType.VarChar).Value = obj.Nome;
-                    cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = obj.Senha;
-                    cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = obj.Email;
-
-                    conn.Open();
-
-                    cmd.ExecuteNonQuery();
-
-                    conn.Close();
-                }
-            }
+            new UsuarioDAO().Inserir(obj);
         }
     }
 }

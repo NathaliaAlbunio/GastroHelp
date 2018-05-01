@@ -1,6 +1,7 @@
 ﻿using GastroHelp.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,7 +11,7 @@ namespace GastroHelp.DataAccess
     {
         public void Inserir(Receita obj)
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog= GastroHelp; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"INSERT INTO RECEITA (ID_CATEGORIA, ID_USUARIO, NIVEL_DIFICULDADE, INGREDIENTES, MODO_PREPARO, NOME_REC, RESUMO, RENDIMENTO, DICA, PUBLICADA, FOTO)
                                   VALUES (@ID_CATEGORIA, @ID_USUARIO, @NIVEL_DIFICULDADE, @INGREDIENTES, @MODO_PREPARO, @NOME_REC, @RESUMO, @RENDIMENTO, @DICA, @PUBLICADA, @FOTO);";
@@ -39,7 +40,7 @@ namespace GastroHelp.DataAccess
 
         public Receita BuscarPorId(int id)
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=GastroHelp; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"SELECT
 	                                R.*,
@@ -98,7 +99,7 @@ namespace GastroHelp.DataAccess
 
         public List<Receita> BuscarTodos()
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=GastroHelp; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 var lst = new List<Receita>();
                 string strSQL = @"SELECT 
