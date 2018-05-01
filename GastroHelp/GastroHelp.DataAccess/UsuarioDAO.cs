@@ -69,5 +69,45 @@ namespace GastroHelp.DataAccess
                 return lst;
             }
         }
+
+        public Usuario Logar(Usuario obj)
+        {
+            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=GastroHelp; Data Source=localhost; Integrated Security=SSPI;"))
+            {
+                string strSQL = @"SELECT * FROM USUARIO WHERE NOME_USUARIO = @NOME_USUARIO AND SENHA = @SENHA";
+
+                using (SqlCommand cmd = new SqlCommand(strSQL))
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.Parameters.Add("@NOME_USUARIO", SqlDbType.VarChar).Value = obj.Nome_Usuario;
+                    cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha;
+
+                    cmd.CommandText = strSQL;
+
+                    var dataReader = cmd.ExecuteReader();
+                    var dt = new DataTable();
+                    dt.Load(dataReader);
+                    conn.Close();
+
+                    if (!(dt != null && dt.Rows.Count > 0))
+                        return null;
+
+                    var row = dt.Rows[0];
+                    var usuario = new Usuario()
+                    {
+
+                        Id_Usuario = Convert.ToInt32(row["ID_USUARIO"]),
+                        Nome = row["NOME"].ToString(),
+                        Senha = row["SENHA"].ToString(),
+                        Email = row["EMAIL"].ToString(),
+                        Nome_Usuario = row["NOME_USUARIO"].ToString(),
+                        Moderador = Convert.ToBoolean(row["MODERADOR"])
+                    };
+
+                    return usuario;
+                }
+            }
+        }
     }
 }

@@ -17,8 +17,8 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <a href="<%# ResolveUrl(string.Format("~/TelaReceita.aspx?id={0}", Eval("Id_Receita"))) %>">
-                        <h3><%# Eval("Nome_Receita") %></h3>
+                    <a href="<%# ResolveUrl(string.Format("~/TelaReceita.aspx?id={0}", Eval("Id_Receita"))) %>" style="color: #000000 !important;">
+                        <h3 style="color: #000000 !important;"><%# Eval("Nome_Receita") %></h3>
                     </a>
                 </div>
             </div>

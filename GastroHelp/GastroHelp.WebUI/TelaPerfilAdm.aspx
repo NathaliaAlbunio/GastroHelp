@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-      <div class="row">
+    <div class="row">
         <div class="col-md-3" style="border: 1px solid gray;">
             <div class="row" style="background-image: url(https://pt.aliexpress.com/item/Allenjoy-photo-background-Light-gray-bubbles-shiny-bright-baby-backgrounds-for-photo-studio-foto-background/32779029108.html);">
                 <div class="col-md-12 text-center">
@@ -26,7 +26,7 @@
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                 </div>
                 <div class="col-md-10">
-                    <a href="#" style="color: #000000; font-family: Verdana; font-size: 16px;">MEU PERFIL</a>
+                    <a href="#" style="font-family: Verdana; font-size: 16px;">MEU PERFIL</a>
                 </div>
             </div>
             <div class="row" style="padding: 20px 0px;">
@@ -34,7 +34,7 @@
                     <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
                 </div>
                 <div class="col-md-10">
-                    <a href="#" style="color: #000000; font-family: Verdana; font-size: 16px;">MINHAS RECEITAS</a>
+                    <a href="#" style="font-family: Verdana; font-size: 16px;">MINHAS RECEITAS</a>
                 </div>
             </div>
             <div class="row" style="padding: 20px 0px;">
@@ -42,7 +42,7 @@
                     <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
                 </div>
                 <div class="col-md-10">
-                    <a href="#" style="color: #000000; font-family: Verdana; font-size: 16px;">MEUS FAVORITOS</a>
+                    <a href="#" style="font-family: Verdana; font-size: 16px;">MEUS FAVORITOS</a>
                 </div>
             </div>
             <div class="row" style="padding: 20px 0px;">
@@ -50,7 +50,7 @@
                     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                 </div>
                 <div class="col-md-10">
-                    <a href="#" style="color: #000000; font-family: Verdana; font-size: 16px;">CONFIGURAÇÕES</a>
+                    <a href="#" style="font-family: Verdana; font-size: 16px;">CONFIGURAÇÕES</a>
                 </div>
             </div>
             <div class="row" style="padding: 20px 0px;">
@@ -58,87 +58,43 @@
                     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                 </div>
                 <div class="col-md-10">
-                    <a href="#" style="color: #000000; font-family: Verdana; font-size: 16px;">CONFIGURAÇÕES</a>
+                    <a href="#" style="font-family: Verdana; font-size: 16px;">CONFIGURAÇÕES</a>
                 </div>
             </div>
         </div>
+
+        <form runat="server" >
         <div class="col-md-9" style="border: 1px solid gray;">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <h1 class="ingredients-title box-title">Receitas para aprovação</h1>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <%--UM--%>
-                            <div class="thumbnail">
-                                <img class="img-responsive" src="Images/bolo-decorado-simples.jpg" />
-                                <div class="caption">
-                                    <h3>Bolo de banana</h3>
-                                    <a href="#" class="btn btn-primary btn-block" role="button">Ver receita</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <%--DOIS--%>
-                            <div class="thumbnail">
-                                <img class="img-responsive" src="Images/bolo-decorado-simples.jpg" />
-                                <div class="caption">
-                                    <h3>Bolo de banana</h3>
-                                    <a href="#" class="btn btn-primary btn-block" role="button">Ver receita</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <%--TRES--%>
-                            <div class="thumbnail">
-                                <img class="img-responsive" src="Images/bolo-decorado-simples.jpg" />
-                                <div class="caption">
-                                    <h3>Bolo de banana</h3>
-                                    <a href="#" class="btn btn-primary btn-block" role="button">Ver receita</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <%--UM--%>
-                                <div class="thumbnail">
-                                    <img class="img-responsive" src="Images/bolo-decorado-simples.jpg" />
-                                    <div class="caption">
-                                        <h3>Bolo de banana</h3>
-                                        <a href="#" class="btn btn-primary btn-block" role="button">Ver receita</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <%--DOIS--%>
-                                <div class="thumbnail">
-                                    <img class="img-responsive" src="Images/bolo-decorado-simples.jpg" />
-                                    <div class="caption">
-                                        <h3>Bolo de banana</h3>
-                                        <a href="#" class="btn btn-primary btn-block" role="button">Ver receita</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <%--TRES--%>
-                                <div class="thumbnail">
-                                    <img class="img-responsive" src="Images/bolo-decorado-simples.jpg" />
-                                    <div class="caption">
-                                        <h3>Bolo de banana</h3>
-                                        <a href="#" class="btn btn-primary btn-block" role="button">Ver receita</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-12">
+                <asp:GridView ID="grdReceitasAprovacao" runat="server" 
+                    AutoGenerateColumns="false"
+                    Width="100%" CssClass="Grid"
+                    AlternatingRowStyle-CssClass="alt"
+                    PagerStyle-CssClass="pgr" style="vertical-align: baseline">
+                    <Columns>
+                        <asp:TemplateField HeaderText="Nome">
+                            <HeaderStyle Width="50%" />
+                            <ItemStyle Width="50%" />
+                            <ItemTemplate>
+                                <asp:HyperLink ID="lblNome" runat="server" 
+                                    Text='<%# Bind("Nome_Receita") %>'></asp:HyperLink>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                         <asp:TemplateField HeaderText="Usuario">
+                            <HeaderStyle Width="50%" />
+                            <ItemStyle Width="50%" />
+                            <ItemTemplate>
+                                <asp:HyperLink ID="lblUsuario" runat="server" 
+                                    Text='<%# Bind("Usuario.Nome") %>'></asp:HyperLink>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                   
+                    </Columns>
+                </asp:GridView>
             </div>
         </div>
+            </form>
     </div>
 </asp:Content>
 
