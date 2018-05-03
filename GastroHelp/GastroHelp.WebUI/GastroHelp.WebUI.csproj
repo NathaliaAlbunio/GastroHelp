@@ -203,6 +203,7 @@
     <Content Include="Images\SorveteVegano.jpg" />
     <Content Include="Images\Steak.jpg" />
     <Content Include="LoginDeUsuario.aspx" />
+    <Content Include="LogOff.aspx" />
     <Content Include="MinhaGeladeira.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -244,6 +245,7 @@
     <Content Include="TelaPerfilUsuario.aspx" />
     <Content Include="TelaPerfilAdm.aspx" />
     <Content Include="TelaReceita.aspx" />
+    <Content Include="Uploads\logo fiep - laboratórios.JPG" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
@@ -280,6 +282,7 @@
     <Compile Include="CadastroDeUsuario.aspx.designer.cs">
       <DependentUpon>CadastroDeUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomPrincipalSerializeModel.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -287,6 +290,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FormsAuthenticationUtil.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -296,6 +300,13 @@
     </Compile>
     <Compile Include="LoginDeUsuario.aspx.designer.cs">
       <DependentUpon>LoginDeUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogOff.aspx.cs">
+      <DependentUpon>LogOff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogOff.aspx.designer.cs">
+      <DependentUpon>LogOff.aspx</DependentUpon>
     </Compile>
     <Compile Include="MinhaGeladeira.aspx.cs">
       <DependentUpon>MinhaGeladeira.aspx</DependentUpon>

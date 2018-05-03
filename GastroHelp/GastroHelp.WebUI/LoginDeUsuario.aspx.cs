@@ -1,11 +1,7 @@
 ﻿using GastroHelp.DataAccess;
 using GastroHelp.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Web.Script.Serialization;
 
 namespace GastroHelp.WebUI
 {
@@ -13,7 +9,8 @@ namespace GastroHelp.WebUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack)
+                return;
         }
 
         protected void btnEntrar_Click(object sender, EventArgs e)
@@ -24,7 +21,11 @@ namespace GastroHelp.WebUI
 
             var obj = new UsuarioDAO().Logar(usuario);
 
-            if(obj == null)
+            //usuario que eu busquei no banco de dados e armazeno no cache do navegador
+            var userData = new JavaScriptSerializer().Serialize(obj);
+            FormsAuthenticationUtil.SetCustomAuthCookie(obj.Nome_Usuario, userData, false);
+
+            if (obj == null)
             {
                 Response.Redirect("LoginDeUsuario.aspx");
             }

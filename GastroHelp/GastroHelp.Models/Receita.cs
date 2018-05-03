@@ -36,7 +36,7 @@ namespace GastroHelp.Models
             get
             {
                 if (!string.IsNullOrWhiteSpace(this.Foto))
-                    return string.Format("~/Images/{0}", this.Foto);
+                    return string.Format("~/Uploads/{0}", this.Foto);
                 return string.Empty;
             }
         }

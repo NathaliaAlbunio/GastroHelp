@@ -22,6 +22,24 @@ namespace GastroHelp.WebUI {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder CssContent;
         
         /// <summary>
+        /// lnkLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkLogin;
+        
+        /// <summary>
+        /// lnkSair control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkSair;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

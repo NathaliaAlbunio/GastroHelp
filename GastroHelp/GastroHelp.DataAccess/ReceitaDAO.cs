@@ -23,14 +23,14 @@ namespace GastroHelp.DataAccess
                     cmd.Parameters.Add("@ID_CATEGORIA", SqlDbType.Int).Value = obj.Categoria.Id_Categoria;
                     cmd.Parameters.Add("@ID_USUARIO", SqlDbType.Int).Value = obj.Usuario.Id_Usuario;
                     cmd.Parameters.Add("@NIVEL_DIFICULDADE", SqlDbType.VarChar).Value = obj.Nivel_Dificuldade;
-                    cmd.Parameters.Add("@INGREDIENTES", SqlDbType.VarChar).Value = obj.Ingredientes;
-                    cmd.Parameters.Add("@MODO_PREPARO", SqlDbType.VarChar).Value = obj.Modo_Preparo;
-                    cmd.Parameters.Add("@NOME_REC", SqlDbType.VarChar).Value = obj.Nome_Receita;
-                    cmd.Parameters.Add("@RESUMO", SqlDbType.VarChar).Value = obj.Resumo;
-                    cmd.Parameters.Add("@RENDIMENTO", SqlDbType.VarChar).Value = obj.Rendimento;
-                    cmd.Parameters.Add("@DICA", SqlDbType.VarChar).Value = obj.Dica;
+                    cmd.Parameters.Add("@INGREDIENTES", SqlDbType.VarChar).Value = obj.Ingredientes ?? string.Empty; ;
+                    cmd.Parameters.Add("@MODO_PREPARO", SqlDbType.VarChar).Value = obj.Modo_Preparo ?? string.Empty; ;
+                    cmd.Parameters.Add("@NOME_REC", SqlDbType.VarChar).Value = obj.Nome_Receita ?? string.Empty; ;
+                    cmd.Parameters.Add("@RESUMO", SqlDbType.VarChar).Value = obj.Resumo ?? string.Empty; ;
+                    cmd.Parameters.Add("@RENDIMENTO", SqlDbType.VarChar).Value = obj.Rendimento ?? string.Empty; ;
+                    cmd.Parameters.Add("@DICA", SqlDbType.VarChar).Value = obj.Dica ?? string.Empty; ;
                     cmd.Parameters.Add("@PUBLICADA", SqlDbType.Bit).Value = obj.Publicada;
-                    cmd.Parameters.Add("@FOTO", SqlDbType.VarChar).Value = obj.Foto;
+                    cmd.Parameters.Add("@FOTO", SqlDbType.VarChar).Value = obj.Foto ?? string.Empty;
 
                     conn.Open();
                     cmd.ExecuteNonQuery();

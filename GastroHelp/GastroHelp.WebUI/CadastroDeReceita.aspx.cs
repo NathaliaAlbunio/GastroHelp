@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,7 +18,6 @@ namespace GastroHelp.WebUI
         {
             if (IsPostBack)
                 return;
-
             CarregarCategoria();
         }
 
@@ -39,7 +39,6 @@ namespace GastroHelp.WebUI
             ddlCategoria.DataSource = lstCategoria.OrderBy(o => o.Nome).ToList();
             ddlCategoria.DataBind();
         }
-
 
         private void LimparCampos()
         {
@@ -75,6 +74,7 @@ namespace GastroHelp.WebUI
 
             if (string.IsNullOrWhiteSpace(txtRendimento.Text))
                 return false;
+
             return true;
         }
 
@@ -97,6 +97,13 @@ namespace GastroHelp.WebUI
             obj.Categoria = new Categoria() { Id_Categoria = Convert.ToInt32(ddlCategoria.SelectedValue) };
             obj.Dica = txtDicas.Text;
             obj.Rendimento = txtRendimento.Text;
+            obj.Foto = Path.GetFileName(fupArquivo.FileName);
+
+            if (!Directory.Exists(Server.MapPath("~/Uploads")))
+                Directory.CreateDirectory(Server.MapPath("~/Uploads"));
+
+            var savedFileName = Path.Combine(Server.MapPath("~/Uploads"), Path.GetFileName(fupArquivo.FileName));
+            fupArquivo.SaveAs(savedFileName);
 
             new ReceitaDAO().Inserir(obj);
         }
