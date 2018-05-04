@@ -15,7 +15,7 @@ namespace GastroHelp.WebUI
             //link login só vai aparecer se não tiver nenhum usuário logado
             lnkLogin.Visible = HttpContext.Current.User == null || HttpContext.Current.User.GetType() == typeof(WindowsPrincipal);
             //link sair só vai aparecer se tiver algum usuário logado
-            lnkSair.Visible = HttpContext.Current.User != null && ((Usuario)HttpContext.Current.User) != null;
+            lnkSair.Visible = HttpContext.Current.User != null && HttpContext.Current.User.GetType() != typeof(WindowsPrincipal) && ((Usuario)HttpContext.Current.User) != null;
         }
 
         protected void lnkLogin_Click(object sender, EventArgs e)

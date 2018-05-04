@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -18,6 +19,13 @@ namespace GastroHelp.WebUI
         {
             if (IsPostBack)
                 return;
+
+            //se não tiver nenhum usuário logado, redireciona para tela de login
+            if (HttpContext.Current.User == null || HttpContext.Current.User.GetType() == typeof(WindowsPrincipal))
+            {
+                Response.Redirect("~/LoginDeUsuario.aspx");
+            }
+
             CarregarCategoria();
         }
 

@@ -60,65 +60,67 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="<%= ResolveUrl("~/Default.aspx") %>">
-                    <span class="glyphicon glyphicon-menu-hamburger" />
+    <form class="form-horizontal" runat="server">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="<%= ResolveUrl("~/Default.aspx") %>">
+                        <span class="glyphicon glyphicon-menu-hamburger" />
 
-                </a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav text-center">
-                    <li>
-                        <a href="<%= ResolveUrl("~/Default.aspx") %>">
-                            <b>GASTROHELP ®</b>
-                        </a>
-                    </li>
-                    <%--<form runat="server" class="navbar-form navbar-left" action="#">
+                    </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav text-center">
+                        <li>
+                            <a href="<%= ResolveUrl("~/Default.aspx") %>">
+                                <b>GASTROHELP ®</b>
+                            </a>
+                        </li>
+                        <%--<form runat="server" class="navbar-form navbar-left" action="#">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Search" name="Ex: Suco verde">
                         </div>
                         <button type="submit" class="btn btn-default">Pesquisar</button>
                     </form>--%>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="<%= ResolveUrl("~/CadastroDeReceita.aspx") %>">
-                            <b>RECEITA</b>
-                        </a>
-                    </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="<%= ResolveUrl("~/CadastroDeReceita.aspx") %>">
+                                <b>RECEITA</b>
+                            </a>
+                        </li>
 
-                    <li>
-                        <a href="<%= ResolveUrl("~/MinhaGeladeira.aspx") %>">
-                            <b>GELADEIRA</b>
-                        </a>
-                    </li>
-                    <li>
-                        <form runat="server" style="padding-top: 15px; padding-bottom: 15px;">
-                            <asp:LinkButton ID="lnkLogin" runat="server" OnClick="lnkLogin_Click" Text="LOGIN" Font-Bold="true" />
-                            <asp:LinkButton ID="lnkSair" runat="server" OnClick="lnkSair_Click" Text="SAIR" Font-Bold="true" />
-                        </form>
-                    </li>
-                </ul>
+                        <li>
+                            <a href="<%= ResolveUrl("~/MinhaGeladeira.aspx") %>">
+                                <b>GELADEIRA</b>
+                            </a>
+                        </li>
+                        <li>
+                            <div style="padding-top: 15px; padding-bottom: 15px;">
+                                <asp:LinkButton ID="lnkLogin" runat="server" OnClick="lnkLogin_Click" Text="LOGIN" Font-Bold="true" />
+                                <asp:LinkButton ID="lnkSair" runat="server" OnClick="lnkSair_Click" Text="SAIR" Font-Bold="true" />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    <div class="container">
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        </asp:ContentPlaceHolder>
-    </div>
-    <footer class="footer">
+        </nav>
         <div class="container">
-            <p class="text-muted"><%= DateTime.Now.Year %> © GastroHelp</p>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
         </div>
-    </footer>
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted"><%= DateTime.Now.Year %> © GastroHelp</p>
+            </div>
+        </footer>
+    </form>
     <script src="<%= ResolveUrl("~/Scripts/jquery-1.9.1.js") %>"></script>
     <script src="<%= ResolveUrl("~/Scripts/bootstrap.js") %>"></script>
     <script src="<%= ResolveUrl("~/Scripts/jquery.cleditor.js") %>"></script>

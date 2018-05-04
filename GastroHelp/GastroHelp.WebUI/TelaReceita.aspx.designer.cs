@@ -58,6 +58,15 @@ namespace GastroHelp.WebUI {
         protected global::System.Web.UI.WebControls.Label lblResumo;
         
         /// <summary>
+        /// btnFavoritar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnFavoritar;
+        
+        /// <summary>
         /// lblIngredientes control.
         /// </summary>
         /// <remarks>
@@ -74,5 +83,14 @@ namespace GastroHelp.WebUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblModoDePreparo;
+        
+        /// <summary>
+        /// txtComentario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtComentario;
     }
 }
