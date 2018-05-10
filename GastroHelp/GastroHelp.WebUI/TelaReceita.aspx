@@ -50,11 +50,14 @@
         </div>
     </div>
     <%-- COMENTÁRIO --%>
-    <div class="row">
+     <div class="row">
         <div class="col-md-12">
-            <strong>Katheleen Alves</strong> <span class="text-muted">comentado há 5 de agosto</span>
-            <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-            <asp:TextBox ID="txtComentario" runat="server" Rows="5" CssClass="form-control" placeholder="Escreva aqui um comentário sobre a receita" TextMode="MultiLine"></asp:TextBox>
+            <div class="col-md-4">
+                <img class="img-circle" src="Images/imagemperfil.jpg" width="100" height="100">
+                </div>
+            <div class="col-md-8">
+                <asp:TextBox ID="txtComentario" runat="server" Rows="5" CssClass="form-control" placeholder="Deixe aqui seu comentário" TextMode="MultiLine"></asp:TextBox>
+            </div>
         </div>
     </div>
 </asp:Content>
