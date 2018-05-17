@@ -176,6 +176,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Images\batatafuracao.img" />
     <None Include="Properties\PublishProfiles\gastrohelp - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\gastrohelp - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

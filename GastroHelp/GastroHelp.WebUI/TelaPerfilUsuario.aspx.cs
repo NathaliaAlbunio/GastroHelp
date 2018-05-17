@@ -1,4 +1,5 @@
 ﻿using System;
+using GastroHelp.DataAccess;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,11 @@ namespace GastroHelp.WebUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack)
+                return;
+            var lst = new FavoritoDAO().BuscarPorFavoritos();
+            dgwfavorito.DataSource = lst;
+            dgwfavorito.DataBind();
         }
     }
 }

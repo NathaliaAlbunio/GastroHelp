@@ -27,7 +27,7 @@
     <%-- FAVORITAR --%>
     <div class="row">
         <div class="col-md-12">
-            <asp:LinkButton ID="btnFavoritar" runat="server" CssClass="btn btn-danger btn-circle btn-lg">
+            <asp:LinkButton ID="btnFavoritar" runat="server" CssClass="btn btn-danger btn-circle btn-lg"  OnClick="btnFavoritar_Click">
                  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favoritar</asp:LinkButton>
         </div>
     </div>

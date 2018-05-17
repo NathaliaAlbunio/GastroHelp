@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Categoria.cs" />
     <Compile Include="Comentario.cs" />
+    <Compile Include="Favorito.cs" />
     <Compile Include="ICustomPrincipal.cs" />
     <Compile Include="Receita.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

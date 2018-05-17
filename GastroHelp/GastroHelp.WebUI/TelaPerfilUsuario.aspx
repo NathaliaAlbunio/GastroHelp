@@ -133,4 +133,36 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-9">
+            <asp:DataList id="dgwfavorito"  CssClass="table text-center" runat="server" RepeatColumns="4" RepeatLayout="Table">
+                <ItemTemplate>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="<%# ResolveUrl(string.Format("~/TelaReceita.aspx?id={0}", Eval("Id_Receita"))) %>">
+                                <img class="img-responsive" src="<%# ResolveUrl((string)Eval("FotoUrl")) %>" />
+
+                            </a>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                    <a href="<%# ResolveUrl(string.Format("~/TelaReceita.aspx?id={0}", Eval("Id_Receita"))) %>" style="color: #000000 !important;">
+                        <h3 style="color: #000000 !important;"><%# Eval("Nome_Receita") %></h3>
+                    </a>
+                </div>
+                        </div>
+                    </div>
+                     <div class="row">
+                <div class="col-md-12">
+                    <h4><%# Eval("Subtitulo") %></h4>
+                </div>
+            </div>
+                </ItemTemplate>
+            </asp:DataList>
+        </div>
+    </div>
 </asp:Content>

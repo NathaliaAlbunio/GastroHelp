@@ -1,5 +1,19 @@
-﻿using GastroHelp.DataAccess;
+﻿//using GastroHelp.DataAccess;
+//using GastroHelp.Models;
+//using System;
+//using System.Web;
+using GastroHelp.DataAccess;
+using GastroHelp.Models;
 using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+using System.Linq;
+using System.Security.Principal;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace GastroHelp.WebUI
 {
@@ -21,6 +35,22 @@ namespace GastroHelp.WebUI
                 lblModoDePreparo.Text = obj.Modo_Preparo;
                 lblResumo.Text = obj.Resumo;
             }
+        }
+
+        protected void btnFavoritar_Click(object sender, EventArgs e)
+        {
+            Favoritar();
+
+        }
+
+        private void Favoritar()
+        {
+            var obj = new Favorito();
+            obj.Usuario = new Usuario() { Id_Usuario = ((Usuario)HttpContext.Current.User).Id_Usuario };
+            obj.Receita = new Receita() { Id_Receita = Convert.ToInt32(Request.QueryString["id"]) };
+
+            new FavoritoDAO().Favoritar(obj);
+            Response.Redirect(string.Format("~/TelaReceita.aspx?id={0}", obj.Receita.Id_Receita));
         }
     }
 }

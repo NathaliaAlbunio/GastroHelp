@@ -219,5 +219,66 @@ namespace GastroHelp.DataAccess
                 }
             }
         }
+
+        public List<Receita> BuscarPorFavoritos(Usuario obj)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
+            {
+                var lst = new List<Receita>();
+                string strSQL = @"SELECT 
+	                                R.*,
+	                                U.NOME AS NOME_USUARIO,
+	                                C.NOME AS NOME_CATEGORIA
+                                FROM RECEITA R 
+                                INNER JOIN USUARIO U ON (U.ID_USUARIO = R.ID_USUARIO)
+                                INNER JOIN CATEGORIA C ON (C.ID_CATEGORIA = R.ID_CATEGORIA)
+                                WHERE R.ID_RECEITA IN (SELECT ID_RECEITA FROM FAVORITO WHERE ID_USUARIO = @ID_USUARIO);";
+
+                using (SqlCommand cmd = new SqlCommand(strSQL))
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.Parameters.Add("@ID_USUARIO", SqlDbType.Int).Value = obj.Id_Usuario;
+                    cmd.CommandText = strSQL;
+
+                    var dataReader = cmd.ExecuteReader();
+                    var dt = new DataTable();
+                    dt.Load(dataReader);
+                    conn.Close();
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        var receita = new Receita()
+                        {
+
+                            Id_Receita = Convert.ToInt32(row["ID_RECEITA"]),
+                            Nome_Receita = row["NOME_REC"].ToString(),
+                            Resumo = row["RESUMO"].ToString(),
+                            Categoria = new Categoria()
+                            {
+                                Id_Categoria = Convert.ToInt32(row["ID_CATEGORIA"]),
+                                Nome = row["NOME_CATEGORIA"].ToString()
+                            },
+                            Usuario = new Usuario()
+                            {
+                                Id_Usuario = Convert.ToInt32(row["ID_USUARIO"]),
+                                Nome = row["NOME_USUARIO"].ToString()
+                            },
+                            Nivel_Dificuldade = row["NIVEL_DIFICULDADE"].ToString(),
+                            Ingredientes = row["INGREDIENTES"].ToString(),
+                            Modo_Preparo = row["MODO_PREPARO"].ToString(),
+                            Rendimento = row["RENDIMENTO"].ToString(),
+                            Dica = row["DICA"].ToString(),
+                            DataCadastro = Convert.ToDateTime(row["DATA_CADASTRO"]),
+                            Publicada = Convert.ToBoolean(row["PUBLICADA"]),
+                            Foto = row["FOTO"].ToString()
+                        };
+                        lst.Add(receita);
+                    }
+
+                    return lst;
+                }
+            }
+        }
     }
 }
