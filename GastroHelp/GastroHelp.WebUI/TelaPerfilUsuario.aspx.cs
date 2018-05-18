@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using GastroHelp.Models;
+
 
 namespace GastroHelp.WebUI
 {
@@ -14,7 +16,7 @@ namespace GastroHelp.WebUI
         {
             if (IsPostBack)
                 return;
-            var lst = new FavoritoDAO().BuscarPorFavoritos();
+            var lst = new ReceitaDAO().BuscarPorFavoritos((Usuario)User);
             dgwfavorito.DataSource = lst;
             dgwfavorito.DataBind();
         }
