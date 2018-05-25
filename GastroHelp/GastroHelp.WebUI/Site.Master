@@ -85,12 +85,6 @@
                                 <b>GASTROHELP ®</b>
                             </a>
                         </li>
-                        <%--<form runat="server" class="navbar-form navbar-left" action="#">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search" name="Ex: Suco verde">
-                        </div>
-                        <button type="submit" class="btn btn-default">Pesquisar</button>
-                    </form>--%>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -98,7 +92,6 @@
                                 <b>RECEITA</b>
                             </a>
                         </li>
-
                         <li>
                             <a href="<%= ResolveUrl("~/MinhaGeladeira.aspx") %>">
                                 <b>GELADEIRA</b>

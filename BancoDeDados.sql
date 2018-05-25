@@ -62,6 +62,15 @@ select
 	nome_rec, resumo, id_categoria, id_usuario, nivel_dificuldade, ingredientes, modo_preparo, rendimento, dica, publicada, foto
 from receita where id_receita = 2;
 
+create table comentario
+(
+	id_comentario	integer identity(1,1) primary key,
+	id_usuario		int references usuario(id_usuario),
+	texto			varchar(500),
+	DataHora		Datetime
+);
+GO
+
 
 update receita set 
 	foto = 'Cerejas.jpg'
@@ -70,3 +79,11 @@ update receita set
 	--resumo = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 
 select * from receita;
+
+
+DROP TABLE RECEITA;
+DROP TABLE USUARIO;
+DROP TABLE CATEGORIA;
+DROP TABLE FAVORITO;
+DROP TABLE COMENTARIO;
+	

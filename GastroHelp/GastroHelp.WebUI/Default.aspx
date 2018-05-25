@@ -4,6 +4,7 @@
     <style type="text/css">
         .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
             border: none !important;
+            width: 25%;
         }
     </style>
     <asp:DataList ID="gridView" CssClass="table text-center" runat="server" RepeatColumns="4" RepeatLayout="Table">

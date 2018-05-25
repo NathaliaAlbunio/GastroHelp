@@ -27,7 +27,7 @@
     <%-- FAVORITAR --%>
     <div class="row">
         <div class="col-md-12">
-            <asp:LinkButton ID="btnFavoritar" runat="server" CssClass="btn btn-danger btn-circle btn-lg"  OnClick="btnFavoritar_Click">
+            <asp:LinkButton ID="btnFavoritar" runat="server" CssClass="btn btn-danger btn-circle btn-lg" OnClick="btnFavoritar_Click">
                  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favoritar</asp:LinkButton>
         </div>
     </div>
@@ -50,14 +50,46 @@
         </div>
     </div>
     <%-- COMENTÁRIO --%>
-     <div class="row">
+    <div class="row">
+
         <div class="col-md-12">
-            <div class="col-md-4">
-                <img class="img-circle" src="Images/imagemperfil.jpg" width="100" height="100">
-                </div>
-            <div class="col-md-8">
-                <asp:TextBox ID="txtComentario" runat="server" Rows="5" CssClass="form-control" placeholder="Deixe aqui seu comentário" TextMode="MultiLine"></asp:TextBox>
-            </div>
+            <asp:TextBox ID="txtComentario" runat="server" Rows="5" CssClass="form-control" placeholder="Deixe aqui seu comentário" TextMode="MultiLine"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <asp:Button ID="btnEnviar" runat="server" CssClass="btn btn-primary" Text="Enviar" OnClick="btnEnviar_Click" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <asp:DataList ID="gridView" CssClass="table text-center" runat="server" RepeatColumns="1" RepeatLayout="Table">
+                <ItemTemplate>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img class="img-circle" src="Images/avatar_2x.png" style="width: 100px;" />
+                        </div>
+                        <div class="col-md-10 text-left">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label><%# Eval("Usuario.Nome") %></label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label><%# Eval("DataHora") %></label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span><%# Eval("texto") %></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                </ItemTemplate>
+            </asp:DataList>
         </div>
     </div>
 </asp:Content>

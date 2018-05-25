@@ -62,8 +62,6 @@
                 </div>
             </div>
         </div>
-
-        <form runat="server" >
         <div class="col-md-9" style="border: 1px solid gray;">
             <div class="col-lg-12">
                 <asp:GridView ID="grdReceitasAprovacao" runat="server" 
@@ -94,7 +92,6 @@
                 </asp:GridView>
             </div>
         </div>
-            </form>
     </div>
 </asp:Content>
 

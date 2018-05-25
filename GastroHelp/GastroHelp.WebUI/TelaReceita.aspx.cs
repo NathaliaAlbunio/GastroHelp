@@ -1,4 +1,4 @@
-﻿//using GastroHelp.DataAccess;
+﻿/   /using GastroHelp.DataAccess;
 //using GastroHelp.Models;
 //using System;
 //using System.Web;
@@ -52,5 +52,40 @@ namespace GastroHelp.WebUI
             new FavoritoDAO().Favoritar(obj);
             Response.Redirect(string.Format("~/TelaReceita.aspx?id={0}", obj.Receita.Id_Receita));
         }
+
+        private bool Validar()
+        {
+
+            if (string.IsNullOrWhiteSpace(txtComentario.Text))
+                return false;
+
+            return true;
+        }
+        
+        private void Salvar()
+        {
+            var obj = new Comentario();
+            obj.texto = txtComentario.Text;
+
+            obj.Usuario = new Usuario() { Id_Usuario = ((Usuario)HttpContext.Current.User).Id_Usuario };
+
+            new ComentarioDAO().EnviarComentario(obj);
+        }
+
+        private void LimparCampos()
+        {
+            txtComentario.Text = string.Empty;
+        }
+
+        protected void btnEnviar_Click(object sender, EventArgs e)
+        {
+            if (Validar())
+            {
+                Salvar();
+                LimparCampos();
+                Response.Redirect("~/TelaReceita.aspx");
+            }
+        }
     }
 }
+ 
