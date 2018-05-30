@@ -129,11 +129,13 @@ namespace GastroHelp.DataAccess
                             Id_Receita = Convert.ToInt32(row["ID_RECEITA"]),
                             Nome_Receita = row["NOME_REC"].ToString(),
                             Resumo = row["RESUMO"].ToString(),
+
                             Categoria = new Categoria()
                             {
                                 Id_Categoria = Convert.ToInt32(row["ID_CATEGORIA"]),
                                 Nome = row["NOME_CATEGORIA"].ToString()
                             },
+
                             Usuario = new Usuario()
                             {
                                 Id_Usuario = Convert.ToInt32(row["ID_USUARIO"]),

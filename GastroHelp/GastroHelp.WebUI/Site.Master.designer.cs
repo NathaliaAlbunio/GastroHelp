@@ -22,6 +22,24 @@ namespace GastroHelp.WebUI {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder CssContent;
         
         /// <summary>
+        /// txtPesquisar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPesquisar;
+        
+        /// <summary>
+        /// btnFavoritar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnFavoritar;
+        
+        /// <summary>
         /// lnkLogin control.
         /// </summary>
         /// <remarks>

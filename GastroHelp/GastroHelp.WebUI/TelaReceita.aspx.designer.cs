@@ -103,12 +103,12 @@ namespace GastroHelp.WebUI {
         protected global::System.Web.UI.WebControls.Button btnEnviar;
         
         /// <summary>
-        /// gridView control.
+        /// gridViewComentario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList gridView;
+        protected global::System.Web.UI.WebControls.DataList gridViewComentario;
     }
 }

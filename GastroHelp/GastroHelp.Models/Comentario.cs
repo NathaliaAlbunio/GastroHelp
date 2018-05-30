@@ -10,6 +10,7 @@ namespace GastroHelp.Models
     {
         public int id_comentario { get; set; }
         public Usuario Usuario { get; set; }
+        public Receita Receita { get; set; }
         public string texto { get; set; }
         public DateTime DataHora { get; set; }
     }

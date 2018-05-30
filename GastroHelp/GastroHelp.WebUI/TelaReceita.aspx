@@ -63,7 +63,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <asp:DataList ID="gridView" CssClass="table text-center" runat="server" RepeatColumns="1" RepeatLayout="Table">
+            <asp:DataList ID="gridViewComentario" CssClass="table text-center" runat="server" RepeatColumns="1" RepeatLayout="Table">
                 <ItemTemplate>
                     <div class="row">
                         <div class="col-md-2">
