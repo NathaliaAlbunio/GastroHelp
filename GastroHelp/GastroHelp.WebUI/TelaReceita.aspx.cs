@@ -69,7 +69,8 @@ namespace GastroHelp.WebUI
             var obj = new Comentario();
             obj.texto = txtComentario.Text;
             obj.Usuario = new Usuario() { Id_Usuario = ((Usuario)HttpContext.Current.User).Id_Usuario };
-
+            obj.Receita = new Receita() { Id_Receita = Convert.ToInt32(Request.QueryString["id"]) };
+            //PARA PEGAR O ID DA RECEITA VC DEVE COLOCAR O REQUEST.QUERTSTRING ID
             new ComentarioDAO().EnviarComentario(obj);
         }
 
