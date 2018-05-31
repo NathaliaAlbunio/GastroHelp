@@ -47,11 +47,7 @@ namespace GastroHelp.WebUI
 
         protected void btnPesquisar_Click(object sender, EventArgs e)
         {
-            var receitas = (List<string>)ViewState["lstReceitas"];
-
-
-            rptReceitasPesq.DataSource = receitas;
-            rptReceitasPesq.DataBind();
+            Response.Redirect(string.Format("~/PesquisaReceita.aspx?texto={0}", txtPesquisar.Text));   
         }
     }
 }
