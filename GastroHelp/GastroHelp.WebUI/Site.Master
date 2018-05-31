@@ -98,8 +98,7 @@
                         <li>
                             <div class="col-md-12">
                                 <asp:TextBox ID="txtPesquisar" runat="server" CssClass="form-control" placeholder="Pesquisar" />
-                                <asp:LinkButton ID="btnFavoritar" runat="server" CssClass="btn btn-danger btn-circle btn-lg" >
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> </asp:LinkButton>
+                                <asp:LinkButton ID="btnPesquisar" runat="server" CssClass="btn btn-default" OnClick="btnPesquisar_Click"> Pesquisar</asp:LinkButton>
                             </div>
                         </li>
                     </ul>

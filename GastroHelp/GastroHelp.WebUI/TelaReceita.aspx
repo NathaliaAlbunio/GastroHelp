@@ -67,7 +67,7 @@
                 <ItemTemplate>
                     <div class="row">
                         <div class="col-md-2">
-                            <img class="img-circle" src="Images/avatar_2x.png" style="width: 100px;" />
+                            <img class="img-circle" src="Images/profile.png"  style="width: 100px;" />
                         </div>
                         <div class="col-md-10 text-left">
                             <div class="row">

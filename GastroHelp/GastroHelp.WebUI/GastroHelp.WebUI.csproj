@@ -198,6 +198,7 @@
     <Content Include="Images\MacarraoVegetariano.jpg" />
     <Content Include="Images\marina-ruy-barbosa.jpg" />
     <Content Include="Images\petit-gateau.jpeg" />
+    <Content Include="Images\profile.png" />
     <Content Include="Images\Pão.jpg" />
     <Content Include="Images\Salmão.jpg" />
     <Content Include="Images\Sanduiche.jpg" />
@@ -207,6 +208,7 @@
     <Content Include="LoginDeUsuario.aspx" />
     <Content Include="LogOff.aspx" />
     <Content Include="MinhaGeladeira.aspx" />
+    <Content Include="PesquisaReceita.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -316,6 +318,13 @@
     </Compile>
     <Compile Include="MinhaGeladeira.aspx.designer.cs">
       <DependentUpon>MinhaGeladeira.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PesquisaReceita.aspx.cs">
+      <DependentUpon>PesquisaReceita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PesquisaReceita.aspx.designer.cs">
+      <DependentUpon>PesquisaReceita.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

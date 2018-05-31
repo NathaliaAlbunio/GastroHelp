@@ -58,6 +58,7 @@ namespace GastroHelp.WebUI
             }
 
             var receitas = new ReceitaDAO().BuscarPorIngredientes(ingredientes);
+
             if (!(receitas != null && receitas.Count > 0))
             {
                 pnlMsg.Visible = true;

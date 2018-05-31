@@ -31,13 +31,13 @@ namespace GastroHelp.WebUI {
         protected global::System.Web.UI.WebControls.TextBox txtPesquisar;
         
         /// <summary>
-        /// btnFavoritar control.
+        /// btnPesquisar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnFavoritar;
+        protected global::System.Web.UI.WebControls.LinkButton btnPesquisar;
         
         /// <summary>
         /// lnkLogin control.

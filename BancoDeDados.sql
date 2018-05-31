@@ -37,7 +37,6 @@ values
 ('Cozidos');
 GO
 
-
 create table receita 
 (
 	id_receita			integer identity(1,1) primary key,
