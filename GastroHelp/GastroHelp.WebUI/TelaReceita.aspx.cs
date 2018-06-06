@@ -1,15 +1,8 @@
 ﻿using GastroHelp.DataAccess;
 using GastroHelp.Models;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
-using System.Security.Principal;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace GastroHelp.WebUI
 {
@@ -23,6 +16,7 @@ namespace GastroHelp.WebUI
             if (!string.IsNullOrWhiteSpace(Request.QueryString["id"]))
             {
                 var obj = new ReceitaDAO().BuscarPorId(Convert.ToInt32(Request.QueryString["id"]));
+                imgRec.Attributes.Add("src", Page.ResolveUrl(Path.Combine("~/Uploads", obj.Foto)));
                 lblNomeReceita.Text = obj.Nome_Receita;
                 lblCategoria.Text = string.Format("Categoria: {0}", obj.Categoria.Nome);
                 lblNivel.Text = string.Format("Nível de dificuldade: {0}", obj.Nivel_Dificuldade);
@@ -35,23 +29,36 @@ namespace GastroHelp.WebUI
             var lst = new ComentarioDAO().BuscarComentario();
             gridViewComentario.DataSource = lst;
             gridViewComentario.DataBind();
-            
-
         }
 
         protected void btnFavoritar_Click(object sender, EventArgs e)
         {
             Favoritar();
+        }
 
+        protected void btnEnviar_Click(object sender, EventArgs e)
+        {
+            if (Validar())
+            {
+                Salvar();
+                LimparCampos();
+                Response.Redirect(string.Format("~/TelaReceita.aspx?id={0}", Request.QueryString["id"]));
+            }
         }
 
         private void Favoritar()
         {
+            if (User == null || User.GetType() != typeof(Usuario))
+            {
+                Response.Redirect("~/LoginDeUsuario.aspx");
+            }
+
             var obj = new Favorito();
             obj.Usuario = new Usuario() { Id_Usuario = ((Usuario)HttpContext.Current.User).Id_Usuario };
             obj.Receita = new Receita() { Id_Receita = Convert.ToInt32(Request.QueryString["id"]) };
 
             new FavoritoDAO().Favoritar(obj);
+
             Response.Redirect(string.Format("~/TelaReceita.aspx?id={0}", obj.Receita.Id_Receita));
         }
 
@@ -77,16 +84,6 @@ namespace GastroHelp.WebUI
         private void LimparCampos()
         {
             txtComentario.Text = string.Empty;
-        }
-
-        protected void btnEnviar_Click(object sender, EventArgs e)
-        {
-            if (Validar())
-            {
-                Salvar();
-                LimparCampos();
-                Response.Redirect(string.Format("~/TelaReceita.aspx?id={0}", Request.QueryString["id"]));
-            }
         }
     }
 }

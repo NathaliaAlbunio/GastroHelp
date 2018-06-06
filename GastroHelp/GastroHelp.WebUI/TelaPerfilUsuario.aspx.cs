@@ -1,11 +1,6 @@
-﻿using System;
-using GastroHelp.DataAccess;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using GastroHelp.DataAccess;
 using GastroHelp.Models;
+using System;
 
 
 namespace GastroHelp.WebUI
@@ -16,6 +11,12 @@ namespace GastroHelp.WebUI
         {
             if (IsPostBack)
                 return;
+
+            if (User == null || User.GetType() != typeof(Usuario))
+            {
+                Response.Redirect("~/LoginDeUsuario.aspx");
+            }
+
             var lst = new ReceitaDAO().BuscarPorFavoritos((Usuario)User);
             dgwfavorito.DataSource = lst;
             dgwfavorito.DataBind();

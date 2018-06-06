@@ -1,12 +1,5 @@
-﻿using GastroHelp.Models;
+﻿using GastroHelp.DataAccess;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace GastroHelp.WebUI
@@ -15,43 +8,25 @@ namespace GastroHelp.WebUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-        } 
+            if (IsPostBack)
+                return;
 
-             public List<Receita> Pesquisar()
-        {
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
+            if (!string.IsNullOrWhiteSpace(Request.QueryString["texto"]))
             {
-                var lst = new List<Receita>();
-                string strSQL = @"SELECT 
-	                                R.*,
-	                            FROM RECEITA R ;";
+                var textoBusca = Request.QueryString["texto"];
+                var receitas = new ReceitaDAO().BuscarPorTexto(textoBusca);
 
-                using (SqlCommand cmdo = new SqlCommand(strSQL))
-                {
-                    conn.Open();
-                    cmdo.Connection = conn;
-                    cmdo.CommandText = strSQL;
+                rptReceitasPesq.DataSource = receitas;
+                rptReceitasPesq.DataBind();
+            }
+        }
 
-                    var dataReader = cmdo.ExecuteReader();
-                    var dt = new DataTable();
-                    dt.Load(dataReader);
-                    conn.Close();
-
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        var receita = new Receita()
-                        {
-                            Id_Receita = Convert.ToInt32(row["ID_RECEITA"]),
-                            Nome_Receita = row["NOME_REC"].ToString(),
-                            Resumo = row["RESUMO"].ToString(),
-
-                        };
-                        lst.Add(receita);
-                    }
-
-                    return lst;
-                }
+        protected void rptReceitasPesq_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "VerMais")
+            {
+                Response.Redirect(string.Format("~/TelaReceita.aspx?id={0}", Convert.ToInt32(e.CommandArgument)));
             }
         }
     }
-    }
+}

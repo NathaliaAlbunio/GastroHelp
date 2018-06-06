@@ -74,9 +74,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <%--<a class="navbar-brand" href="<%= ResolveUrl("~/Default.aspx") %>">
+                    <a class="navbar-brand" href="<%= ResolveUrl("~/Default.aspx") %>">
                         <span class="glyphicon glyphicon-menu-hamburger" />
-                    </a>--%>
+                    </a>
                     <ul class="nav navbar-nav text-center">
                         <li>
                             <a href="<%= ResolveUrl("~/TelaPerfilUsuario.aspx") %>">
@@ -93,16 +93,6 @@
                             </a>
                         </li>
                     </ul>
-
-                    <ul class="nav navbar-nav text-center">
-                        <li>
-                            <div class="col-md-12">
-                                <asp:TextBox ID="txtPesquisar" runat="server" CssClass="form-control" placeholder="Pesquisar" />
-                                <asp:LinkButton ID="btnPesquisar" runat="server" CssClass="btn btn-default" OnClick="btnPesquisar_Click"> Pesquisar</asp:LinkButton>
-                            </div>
-                        </li>
-                    </ul>
-
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="<%= ResolveUrl("~/CadastroDeReceita.aspx") %>">
@@ -121,6 +111,10 @@
                             </div>
                         </li>
                     </ul>
+                    <div class="navbar-form navbar-right">
+                        <asp:TextBox ID="txtPesquisar" runat="server" CssClass="form-control" placeholder="Pesquisar" />
+                        <asp:LinkButton ID="btnPesquisar" runat="server" CssClass="btn btn-primary" OnClick="btnPesquisar_Click"> Pesquisar</asp:LinkButton>
+                    </div>
                 </div>
             </div>
         </nav>

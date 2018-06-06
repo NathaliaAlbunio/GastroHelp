@@ -22,24 +22,6 @@ namespace GastroHelp.WebUI {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder CssContent;
         
         /// <summary>
-        /// txtPesquisar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPesquisar;
-        
-        /// <summary>
-        /// btnPesquisar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnPesquisar;
-        
-        /// <summary>
         /// lnkLogin control.
         /// </summary>
         /// <remarks>
@@ -56,6 +38,24 @@ namespace GastroHelp.WebUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkSair;
+        
+        /// <summary>
+        /// txtPesquisar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPesquisar;
+        
+        /// <summary>
+        /// btnPesquisar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnPesquisar;
         
         /// <summary>
         /// MainContent control.

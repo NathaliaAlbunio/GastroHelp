@@ -50,6 +50,13 @@ namespace GastroHelp.WebUI
         {
             var ingredientes = (List<string>)ViewState["lstIngredientes"];
 
+            if (!(ingredientes != null && ingredientes.Count > 0))
+            {
+                pnlMsg.Visible = true;
+                lblMsg.Text = "Mínimo permitido de 3 ingredientes!";
+                return;
+            }
+
             if (ingredientes != null && ingredientes.Count < 3)
             {
                 pnlMsg.Visible = true;

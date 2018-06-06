@@ -7,7 +7,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container" style="background-color: white;">
         <div class="col-md-12">
-            <div class="main-login main-center">
+            <div class="main-login">
                 <h1><b>Cadastro de Receita</b></h1>
                 <!-- NOME DA RECEITA -->
                 <div class="form-group">
@@ -19,13 +19,6 @@
 
                 <%--  INGREDIENTES--%>
                 <div class="form-group">
-                    <%--                        <div class="col-md-8 alert alert-warning" role="alert">
-                            Escreva um ingrediente por linha.
-                                <br />
-                            Não use hífen, numeração ou outro marcador para separar os ingredientes                                                                                             
-                        </div>--%>
-                </div>
-                <div class="form-group">
                     <div class="col-md-8">
                         <label for="ingredientes control-label">Ingredientes</label>
                         <asp:TextBox ID="txtIngredientes" runat="server" CssClass="form-control" TextMode="MultiLine" placeholder="Escreva aqui os ingredientes um por linha, e depois selecione a opção de marcadores para que fique em tópicos " />
@@ -33,13 +26,6 @@
                 </div>
 
                 <%--  PREPARO --%>
-                <div class="form-group">
-                    <%--                        <div class="col-md-8 alert alert-warning" role="alert">
-                            Escreva um ingrediente por linha.
-                                <br />
-                            Não use hífen, numeração ou outro marcador para separar os ingredientes                                                                                             
-                        </div>--%>
-                </div>
                 <div class="form-group">
                     <div class="col-md-8">
                         <label for="preparo control-label">Preparo</label>

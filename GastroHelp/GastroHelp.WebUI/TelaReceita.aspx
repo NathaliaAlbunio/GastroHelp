@@ -20,15 +20,16 @@
             </h5>
         </div>
         <%-- IMAGEM DA RECEITA --%>
-        <div class="col-md-6">
-            <img class="img-rounded img-responsive" src="Images/bacalhau.jpg" />
+        <div class="col-md-6 text-center">
+            <img id="imgRec" runat="server" class="img-rounded" style="height: 400px;" />
         </div>
     </div>
     <%-- FAVORITAR --%>
     <div class="row">
         <div class="col-md-12">
             <asp:LinkButton ID="btnFavoritar" runat="server" CssClass="btn btn-danger btn-circle btn-lg" OnClick="btnFavoritar_Click">
-                 <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favoritar</asp:LinkButton>
+                 <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favoritar
+            </asp:LinkButton>
         </div>
     </div>
     <%-- INGREDIENTES --%>
@@ -67,7 +68,7 @@
                 <ItemTemplate>
                     <div class="row">
                         <div class="col-md-2">
-                            <img class="img-circle" src="Images/profile.png"  style="width: 100px;" />
+                            <img class="img-circle" src="Images/profile.png" style="width: 100px;" />
                         </div>
                         <div class="col-md-10 text-left">
                             <div class="row">

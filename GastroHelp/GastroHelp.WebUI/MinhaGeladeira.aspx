@@ -77,7 +77,6 @@
             </asp:Panel>
         </div>
     </div>
-
     <asp:Repeater ID="rptReceitas" runat="server" OnItemCommand="rptReceitas_ItemCommand">
         <ItemTemplate>
             <div class="row">

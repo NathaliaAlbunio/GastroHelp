@@ -10,12 +10,12 @@
                 <div class="col-md-12 text-center">
                     <div class="row">
                         <div class="col-md-12">
-                            <img class="img-circle" src="http://static1.purepeople.com.br/people/3/54/70/83/@/2263952-shawn-mendes-150x150-2.jpg" style="padding-top: 15px;">
+                            <img class="img-circle" src="Images/profile.png" style="padding-top: 15px;">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <label class="control-label" style="padding: 10px 0px;">john.doe@gmail.com</label>
+                            <label class="control-label" style="padding: 10px 0px;">u@gmail.com</label>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                 </div>
                 <div class="col-md-10">
-                    <a href="#" style="color: #000000; font-family: Verdana; font-size: 16px;">MEU PERFIL</a>
+                    <a href="#" font-family: Verdana; font-size: 16px;">MEU PERFIL</a>
                 </div>
             </div>
             <div class="row" style="padding: 20px 0px;">
@@ -33,7 +33,7 @@
                     <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
                 </div>
                 <div class="col-md-10">
-                    <a href="#" style="color: #000000; font-family: Verdana; font-size: 16px;">MINHAS RECEITAS</a>
+                    <a href="#"  font-family: Verdana; font-size: 16px;">MINHAS RECEITAS</a>
                 </div>
             </div>
             <div class="row" style="padding: 20px 0px;">
@@ -41,7 +41,7 @@
                     <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
                 </div>
                 <div class="col-md-10">
-                    <a href="#" style="color: #000000; font-family: Verdana; font-size: 16px;">MEUS FAVORITOS</a>
+                    <a href="#" font-family: Verdana; font-size: 16px;">MEUS FAVORITOS</a>
                 </div>
             </div>
             <div class="row" style="padding: 20px 0px;">
@@ -49,7 +49,7 @@
                     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                 </div>
                 <div class="col-md-10">
-                    <a href="#" style="color: #000000; font-family: Verdana; font-size: 16px;">CONFIGURAÇÕES</a>
+                    <a href="#"  font-family: Verdana; font-size: 16px;">CONFIGURAÇÕES</a>
                 </div>
             </div>
         </div>

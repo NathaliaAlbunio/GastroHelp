@@ -20,7 +20,7 @@ namespace GastroHelp.WebUI
             if (IsPostBack)
                 return;
             if (IsPostBack)
-                return;            
+                return;
             //link login só vai aparecer se não tiver nenhum usuário logado
             lnkLogin.Visible = HttpContext.Current.User == null || HttpContext.Current.User.GetType() == typeof(WindowsPrincipal);
             //link sair só vai aparecer se tiver algum usuário logado
@@ -35,7 +35,7 @@ namespace GastroHelp.WebUI
         protected void lnkSair_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/LogOff.aspx");
-        }    
+        }
 
         protected void rptReceitasPesq_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
@@ -47,7 +47,10 @@ namespace GastroHelp.WebUI
 
         protected void btnPesquisar_Click(object sender, EventArgs e)
         {
-            Response.Redirect(string.Format("~/PesquisaReceita.aspx?texto={0}", txtPesquisar.Text));   
+            if (!string.IsNullOrWhiteSpace(txtPesquisar.Text))
+            {
+                Response.Redirect(string.Format("~/PesquisaReceita.aspx?texto={0}", txtPesquisar.Text));
+            }
         }
     }
 }
