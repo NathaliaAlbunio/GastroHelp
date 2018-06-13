@@ -50,7 +50,7 @@
                 </div>
             </div>
             <!-- CONFIRME SUA SENHA -->
-            <div class="form-group">
+           <%-- <div class="form-group">
                 <label for="confirm" class="cols-sm-2 control-label">Confirme sua senha</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
@@ -58,7 +58,7 @@
                         <asp:TextBox ID="TxtConfirmarSenha" runat="server" CssClass="form-control" placeholder="Digite sua senha novamente" type="password" />
                     </div>
                 </div>
-            </div>
+            </div>--%>
 
             <div class="form-group ">
                 <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" CssClass="btn btn-default btn-lg btn-block login-button" OnClick="btnCadastrar_Click" />

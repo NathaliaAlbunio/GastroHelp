@@ -38,7 +38,7 @@ namespace GastroHelp.WebUI
             TxtNome.Text = string.Empty;
             TxtSenha.Text = string.Empty;
             TxtNomeUsuario.Text = string.Empty;
-            TxtConfirmarSenha.Text = string.Empty;
+            /*xtConfirmarSenha.Text = string.Empty;*/
             Txtemail.Text = string.Empty;
 
         }
@@ -58,8 +58,8 @@ namespace GastroHelp.WebUI
             if (string.IsNullOrWhiteSpace(TxtSenha.Text))
                 return false;
 
-            if (string.IsNullOrWhiteSpace(TxtConfirmarSenha.Text))
-                return false;
+            //if (string.IsNullOrWhiteSpace(TxtConfirmarSenha.Text))
+            //    return false;
 
             return true;
         }
