@@ -26,7 +26,7 @@
                         </p>
 
 
-                        <button class="btn btn-primary">
+                        <button class="btn btn-dangerous">
                             Ver mais...
                         </button>
                         

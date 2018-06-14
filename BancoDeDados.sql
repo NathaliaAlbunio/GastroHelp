@@ -63,6 +63,28 @@ create table favorito
 );
 
 
+
+-- campo calculado que retorna a quantidade de favoritos de uma receita
+IF OBJECT_ID(N'dbo.buscar_favoritos', N'FN') IS NOT NULL
+    DROP FUNCTION [dbo].[buscar_favoritos]
+GO
+
+create function [dbo].[buscar_favoritos](@id_receita int) returns int
+as
+begin
+    return (
+		select count(*) from favorito f where f.id_receita = @id_receita
+    );
+end
+go
+
+-- criando campo de quantidade em estoque calculado
+alter table receita add qtd_favorito as dbo.[buscar_favoritos](id_receita);
+go
+
+
+
+
 insert into receita (nome_rec, resumo, id_categoria, id_usuario, nivel_dificuldade, ingredientes, modo_preparo, rendimento, dica, publicada, foto)
 select
 	nome_rec, resumo, id_categoria, id_usuario, nivel_dificuldade, ingredientes, modo_preparo, rendimento, dica, publicada, foto
@@ -97,3 +119,9 @@ DROP TABLE CATEGORIA;
 DROP TABLE FAVORITO;
 DROP TABLE COMENTARIO;
 	
+
+
+select * from receita
+
+
+--delete from favorito where id_usuario = 3
