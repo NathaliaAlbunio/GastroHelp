@@ -70,6 +70,7 @@ namespace GastroHelp.WebUI
             obj.Nome = TxtNome.Text;
             obj.Senha = TxtSenha.Text;
             obj.Email = Txtemail.Text;
+            obj.Nome_Usuario = TxtNomeUsuario.Text;
 
             new UsuarioDAO().Inserir(obj);
         }

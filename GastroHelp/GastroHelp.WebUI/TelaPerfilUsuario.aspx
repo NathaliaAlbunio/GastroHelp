@@ -15,7 +15,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <label class="control-label" style="padding: 10px 0px;">u@gmail.com</label>
+                            <asp:label id="lblNomeUsuario" runat="server" class="control-label" style="padding: 10px 0px;"></asp:label>
                         </div>
                     </div>
                 </div>

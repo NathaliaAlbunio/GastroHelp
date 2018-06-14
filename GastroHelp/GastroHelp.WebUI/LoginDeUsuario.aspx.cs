@@ -21,6 +21,13 @@ namespace GastroHelp.WebUI
 
             var obj = new UsuarioDAO().Logar(usuario);
 
+            if (obj == null)
+            {
+                lblMsg.Text = "Login ou senha inválido!";
+                pnlMsg.Visible = true;
+                return;
+            }
+
             //usuario que eu busquei no banco de dados e armazeno no cache do navegador
             var userData = new JavaScriptSerializer().Serialize(obj);
             FormsAuthenticationUtil.SetCustomAuthCookie(obj.Nome_Usuario, userData, false);

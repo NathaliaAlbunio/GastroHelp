@@ -3,6 +3,7 @@ using GastroHelp.Models;
 using System;
 
 
+
 namespace GastroHelp.WebUI
 {
     public partial class TelaPerfil : System.Web.UI.Page
@@ -17,9 +18,12 @@ namespace GastroHelp.WebUI
                 Response.Redirect("~/LoginDeUsuario.aspx");
             }
 
-            var lst = new ReceitaDAO().BuscarPorFavoritos((Usuario)User);
+            var usuarioLogado = (Usuario)User;
+            var lst = new ReceitaDAO().BuscarPorFavoritos(usuarioLogado);
             dgwfavorito.DataSource = lst;
             dgwfavorito.DataBind();
+
+            lblNomeUsuario.Text = usuarioLogado.Nome;
         }
     }
 }

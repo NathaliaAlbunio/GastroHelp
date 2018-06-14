@@ -1,5 +1,6 @@
 ﻿using GastroHelp.DataAccess;
 using System;
+using System.Linq;
 using System.Web.UI;
 
 namespace GastroHelp.WebUI
@@ -11,7 +12,8 @@ namespace GastroHelp.WebUI
             if (IsPostBack)
                 return;
             var lst = new ReceitaDAO().BuscarTodos();
-            gridView.DataSource = lst;
+            //buscando as 10 receitas mais favoritadas
+            gridView.DataSource = lst.OrderByDescending(r => r.QtdFavorito).Take(10).ToList();
             gridView.DataBind();
         }
     }

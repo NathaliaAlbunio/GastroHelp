@@ -90,7 +90,8 @@ namespace GastroHelp.DataAccess
                         Dica = row["DICA"].ToString(),
                         DataCadastro = Convert.ToDateTime(row["DATA_CADASTRO"]),
                         Publicada = Convert.ToBoolean(row["PUBLICADA"]),
-                        Foto = row["FOTO"].ToString()
+                        Foto = row["FOTO"].ToString(),
+                        QtdFavorito = Convert.ToInt32(row["QTD_FAVORITO"])
                     };
 
                     return receita;

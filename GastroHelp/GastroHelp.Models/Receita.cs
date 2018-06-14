@@ -20,6 +20,7 @@ namespace GastroHelp.Models
         public DateTime DataCadastro { get; set; }
         public bool Publicada { get; set; }
         public string Foto { get; set; }
+        public int QtdFavorito { get; set; }
 
         public string Subtitulo
         {
