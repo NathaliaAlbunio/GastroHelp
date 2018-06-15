@@ -24,11 +24,14 @@ namespace GastroHelp.WebUI
                 lblIngredientes.Text = obj.Ingredientes;
                 lblModoDePreparo.Text = obj.Modo_Preparo;
                 lblResumo.Text = obj.Resumo;
-            }
 
-            var lst = new ComentarioDAO().BuscarComentario();
-            gridViewComentario.DataSource = lst;
-            gridViewComentario.DataBind();
+                var lstFavoritos = new FavoritoDAO().Buscar(obj.Id_Receita, ((Usuario)HttpContext.Current.User).Id_Usuario);
+                btnFavoritar.Visible = !(lstFavoritos != null && lstFavoritos.Count > 0);
+
+                var lst = new ComentarioDAO().BuscarPorReceita(obj.Id_Receita);
+                gridViewComentario.DataSource = lst;
+                gridViewComentario.DataBind();
+            }
         }
 
         protected void btnFavoritar_Click(object sender, EventArgs e)
@@ -74,10 +77,10 @@ namespace GastroHelp.WebUI
         private void Salvar()
         {
             var obj = new Comentario();
-            obj.texto = txtComentario.Text;
+            obj.Texto = txtComentario.Text;
             obj.Usuario = new Usuario() { Id_Usuario = ((Usuario)HttpContext.Current.User).Id_Usuario };
-            obj.Receita = new Receita() { Id_Receita = Convert.ToInt32(Request.QueryString["id"]) };
             //PARA PEGAR O ID DA RECEITA VC DEVE COLOCAR O REQUEST.QUERTSTRING ID
+            obj.Receita = new Receita() { Id_Receita = Convert.ToInt32(Request.QueryString["id"]) };
             new ComentarioDAO().EnviarComentario(obj);
         }
 

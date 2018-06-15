@@ -81,7 +81,7 @@
         <ItemTemplate>
             <div class="row">
                 <div class="col-md-3">
-                    <img class="img-responsive" src="<%# ResolveUrl(string.Format("~/Images/{0}", Eval("Foto"))) %>" />
+                    <img class="img-responsive" src="<%# ResolveUrl(string.Format("~/Uploads/{0}", Eval("Foto"))) %>" />
                 </div>
                 <div class="col-md-9">
                     <h3><%# Eval("Nome_Receita") %></h3>

@@ -13,14 +13,14 @@ namespace GastroHelp.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
-                string strSQL = @"Insert into comentario (texto, id_usuario, id_receita) values (@texto, @id_usuario, @id_receita);";
+                string strSQL = @"INSERT INTO COMENTARIO (TEXTO, ID_USUARIO, ID_RECEITA) VALUES (@TEXTO, @ID_USUARIO, @ID_RECEITA);";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
-                    cmd.Parameters.Add("@texto", SqlDbType.VarChar).Value = obj.texto;
-                    cmd.Parameters.Add("@id_usuario", SqlDbType.Int).Value = obj.Usuario.Id_Usuario;
-                    cmd.Parameters.Add("@id_receita", SqlDbType.Int).Value = obj.Receita.Id_Receita;
+                    cmd.Parameters.Add("@TEXTO", SqlDbType.VarChar).Value = obj.Texto;
+                    cmd.Parameters.Add("@ID_USUARIO", SqlDbType.Int).Value = obj.Usuario.Id_Usuario;
+                    cmd.Parameters.Add("@ID_RECEITA", SqlDbType.Int).Value = obj.Receita.Id_Receita;
 
                     foreach (SqlParameter parameter in cmd.Parameters)
                     {
@@ -38,25 +38,28 @@ namespace GastroHelp.DataAccess
             }
         }
 
-        public List<Comentario> BuscarComentario()
+        public List<Comentario> BuscarPorReceita(int receita)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 var lst = new List<Comentario>();
                 string strSQL = @"SELECT 
-                                        C.*,
-                                        U.id_usuario,
-                                        R.id_receita
-                                        from comentario C 
-                                         INNER JOIN USUARIO U ON (U.ID_USUARIO = C.ID_USUARIO)
-                                INNER JOIN receita R ON (R.ID_RECEITA = C.ID_RECEITA);";
-                using (SqlCommand cmdo = new SqlCommand(strSQL))
+                                      C.*,
+                                      U.ID_USUARIO,
+                                      R.ID_RECEITA
+                                  FROM COMENTARIO C 
+                                  INNER JOIN USUARIO U ON (U.ID_USUARIO = C.ID_USUARIO)
+                                  INNER JOIN RECEITA R ON (R.ID_RECEITA = C.ID_RECEITA)
+                                  WHERE C.ID_RECEITA = @ID_RECEITA;";
+
+                using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     conn.Open();
-                    cmdo.Connection = conn;
-                    cmdo.CommandText = strSQL;
+                    cmd.Connection = conn;
+                    cmd.Parameters.Add("@ID_RECEITA", SqlDbType.Int).Value = receita;
+                    cmd.CommandText = strSQL;
 
-                    var dataReader = cmdo.ExecuteReader();
+                    var dataReader = cmd.ExecuteReader();
                     var dt = new DataTable();
                     dt.Load(dataReader);
                     conn.Close();
@@ -65,27 +68,25 @@ namespace GastroHelp.DataAccess
                     {
                         var comentario = new Comentario
                         {
-                            id_comentario = Convert.ToInt32(row["id_comentario"]),
-                            texto = row["texto"].ToString(),
-                            DataHora = Convert.ToDateTime(row["DataHora"]),
+                            Id_Comentario = Convert.ToInt32(row["ID_COMENTARIO"]),
+                            Texto = row["TEXTO"].ToString(),
+                            DataHora = Convert.ToDateTime(row["DATAHORA"]),
                             Usuario = new Usuario()
                             {
-                                Id_Usuario = Convert.ToInt32(row["Id_Usuario"]),
+                                Id_Usuario = Convert.ToInt32(row["ID_USUARIO"]),
                             },
                             Receita = new Receita()
                             {
-                                Id_Receita = Convert.ToInt32(row["Id_Receita"]),
+                                Id_Receita = Convert.ToInt32(row["ID_RECEITA"]),
                             }
-
                         };
+
                         lst.Add(comentario);
                     }
 
                     return lst;
                 }
-
             }
-
         }
     }
 }
