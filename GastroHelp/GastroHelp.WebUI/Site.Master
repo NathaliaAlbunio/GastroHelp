@@ -77,13 +77,6 @@
                     <a class="navbar-brand" href="<%= ResolveUrl("~/Default.aspx") %>">
                         <span class="glyphicon glyphicon-menu-hamburger" />
                     </a>
-                    <ul class="nav navbar-nav text-center">
-                        <li>
-                            <a href="<%= ResolveUrl("~/TelaPerfilUsuario.aspx") %>">
-                                <b>PERFIL</b>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav text-center">
@@ -94,6 +87,11 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="<%= ResolveUrl("~/TelaPerfilUsuario.aspx") %>">
+                                <b>MEU PERFIL</b>
+                            </a>
+                        </li>
                         <li>
                             <a href="<%= ResolveUrl("~/CadastroDeReceita.aspx") %>">
                                 <b>RECEITA</b>
@@ -112,8 +110,14 @@
                         </li>
                     </ul>
                     <div class="navbar-form navbar-right">
-                        <asp:TextBox ID="txtPesquisar" runat="server" CssClass="form-control" placeholder="Pesquisar" />
-                        <asp:LinkButton ID="btnPesquisar" runat="server" CssClass="btn btn-primary" OnClick="btnPesquisar_Click"> Pesquisar</asp:LinkButton>
+                        <div class="input-group">
+                            <asp:TextBox ID="txtPesquisar" runat="server" CssClass="form-control" placeholder="Pesquisar" />
+                            <span class="input-group-btn">
+                                <asp:LinkButton ID="btnPesquisar" runat="server" CssClass="btn btn-default" OnClick="btnPesquisar_Click"> 
+                                    <span class="glyphicon glyphicon-search" style="color: #000000 !important;" aria-hidden="true"></span>
+                                </asp:LinkButton>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>

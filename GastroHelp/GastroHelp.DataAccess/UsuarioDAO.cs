@@ -25,6 +25,14 @@ namespace GastroHelp.DataAccess
                     cmd.Parameters.Add("@NOME_USUARIO", SqlDbType.VarChar).Value = obj.Nome_Usuario;
                     cmd.Parameters.Add("@MODERADOR", SqlDbType.Bit).Value = obj.Moderador;
 
+                    foreach (SqlParameter parameter in cmd.Parameters)
+                    {
+                        if (parameter.Value == null)
+                        {
+                            parameter.Value = DBNull.Value;
+                        }
+                    }
+
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -82,7 +90,6 @@ namespace GastroHelp.DataAccess
                     cmd.Connection = conn;
                     cmd.Parameters.Add("@NOME_USUARIO", SqlDbType.VarChar).Value = obj.Nome_Usuario;
                     cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha;
-
                     cmd.CommandText = strSQL;
 
                     var dataReader = cmd.ExecuteReader();

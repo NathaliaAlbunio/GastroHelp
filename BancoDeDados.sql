@@ -18,6 +18,8 @@ GO
 
 insert into usuario (nome, senha, email, nome_usuario, moderador)
 values ('Moderador', '123', 'moderador@gastrohelp.com.br', 'moderador', 1);
+insert into usuario (nome, senha, email, nome_usuario, moderador)
+values ('Tiago Andrade', '123', 'tgnandrade@gmail.com', 'tiago', 0);
 GO
 
 create table categoria 
@@ -62,8 +64,6 @@ create table favorito
 	data_cadastro	datetime not null default getdate()
 );
 
-
-
 -- campo calculado que retorna a quantidade de favoritos de uma receita
 IF OBJECT_ID(N'dbo.buscar_favoritos', N'FN') IS NOT NULL
     DROP FUNCTION [dbo].[buscar_favoritos]
@@ -82,14 +82,6 @@ go
 alter table receita add qtd_favorito as dbo.[buscar_favoritos](id_receita);
 go
 
-
-
-
-insert into receita (nome_rec, resumo, id_categoria, id_usuario, nivel_dificuldade, ingredientes, modo_preparo, rendimento, dica, publicada, foto)
-select
-	nome_rec, resumo, id_categoria, id_usuario, nivel_dificuldade, ingredientes, modo_preparo, rendimento, dica, publicada, foto
-from receita where id_receita = 2;
-
 create table comentario
 (
 	id_comentario	integer identity(1,1) primary key,
@@ -99,29 +91,3 @@ create table comentario
 	DataHora		Datetime not null default getdate()
 );
 GO
-
-
-update receita 
-set foto = 'Cerejas.jpg'
-	where id_receita = 8;
-GO
-	
-	
-SELECT * FROM RECEITA;
-SELECT * FROM USUARIO;
-SELECT * FROM CATEGORIA;
-SELECT * FROM FAVORITO;
-SELECT * FROM COMENTARIO;
-
-DROP TABLE RECEITA;
-DROP TABLE USUARIO;
-DROP TABLE CATEGORIA;
-DROP TABLE FAVORITO;
-DROP TABLE COMENTARIO;
-	
-
-
-select * from receita
-
-
---delete from favorito where id_usuario = 3

@@ -2,8 +2,6 @@
 using GastroHelp.Models;
 using System;
 
-
-
 namespace GastroHelp.WebUI
 {
     public partial class TelaPerfil : System.Web.UI.Page
@@ -19,11 +17,15 @@ namespace GastroHelp.WebUI
             }
 
             var usuarioLogado = (Usuario)User;
-            var lst = new ReceitaDAO().BuscarPorFavoritos(usuarioLogado);
-            dgwfavorito.DataSource = lst;
-            dgwfavorito.DataBind();
-
             lblNomeUsuario.Text = usuarioLogado.Nome;
+
+            var lstMinhasReceitas = new ReceitaDAO().BuscarMinhasReceitas(usuarioLogado);
+            grdMinhasReceitas.DataSource = lstMinhasReceitas;
+            grdMinhasReceitas.DataBind();
+
+            var lstFavoritos = new ReceitaDAO().BuscarPorFavoritos(usuarioLogado);
+            grdMeusFavoritos.DataSource = lstFavoritos;
+            grdMeusFavoritos.DataBind();
         }
     }
 }

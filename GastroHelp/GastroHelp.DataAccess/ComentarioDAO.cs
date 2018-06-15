@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GastroHelp.DataAccess
 {
@@ -18,15 +15,23 @@ namespace GastroHelp.DataAccess
             {
                 string strSQL = @"Insert into comentario (texto, id_usuario, id_receita) values (@texto, @id_usuario, @id_receita);";
 
-                using (SqlCommand cmdo = new SqlCommand(strSQL))
+                using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
-                    cmdo.Connection = conn;
-                    cmdo.Parameters.Add("@texto", SqlDbType.VarChar).Value = obj.texto;
-                    cmdo.Parameters.Add("@id_usuario", SqlDbType.Int).Value = obj.Usuario.Id_Usuario;
-                    cmdo.Parameters.Add("@id_receita", SqlDbType.Int).Value = obj.Receita.Id_Receita;
+                    cmd.Connection = conn;
+                    cmd.Parameters.Add("@texto", SqlDbType.VarChar).Value = obj.texto;
+                    cmd.Parameters.Add("@id_usuario", SqlDbType.Int).Value = obj.Usuario.Id_Usuario;
+                    cmd.Parameters.Add("@id_receita", SqlDbType.Int).Value = obj.Receita.Id_Receita;
+
+                    foreach (SqlParameter parameter in cmd.Parameters)
+                    {
+                        if (parameter.Value == null)
+                        {
+                            parameter.Value = DBNull.Value;
+                        }
+                    }
 
                     conn.Open();
-                    cmdo.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                     conn.Close();
 
                 }

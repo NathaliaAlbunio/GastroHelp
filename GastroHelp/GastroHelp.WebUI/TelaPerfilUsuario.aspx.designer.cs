@@ -22,12 +22,21 @@ namespace GastroHelp.WebUI {
         protected global::System.Web.UI.WebControls.Label lblNomeUsuario;
         
         /// <summary>
-        /// dgwfavorito control.
+        /// grdMinhasReceitas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dgwfavorito;
+        protected global::System.Web.UI.WebControls.GridView grdMinhasReceitas;
+        
+        /// <summary>
+        /// grdMeusFavoritos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdMeusFavoritos;
     }
 }

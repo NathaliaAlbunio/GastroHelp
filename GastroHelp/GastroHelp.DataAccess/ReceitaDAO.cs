@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 
 namespace GastroHelp.DataAccess
 {
@@ -23,14 +22,22 @@ namespace GastroHelp.DataAccess
                     cmd.Parameters.Add("@ID_CATEGORIA", SqlDbType.Int).Value = obj.Categoria.Id_Categoria;
                     cmd.Parameters.Add("@ID_USUARIO", SqlDbType.Int).Value = obj.Usuario.Id_Usuario;
                     cmd.Parameters.Add("@NIVEL_DIFICULDADE", SqlDbType.VarChar).Value = obj.Nivel_Dificuldade;
-                    cmd.Parameters.Add("@INGREDIENTES", SqlDbType.VarChar).Value = obj.Ingredientes ?? string.Empty; ;
-                    cmd.Parameters.Add("@MODO_PREPARO", SqlDbType.VarChar).Value = obj.Modo_Preparo ?? string.Empty; ;
-                    cmd.Parameters.Add("@NOME_REC", SqlDbType.VarChar).Value = obj.Nome_Receita ?? string.Empty; ;
-                    cmd.Parameters.Add("@RESUMO", SqlDbType.VarChar).Value = obj.Resumo ?? string.Empty; ;
-                    cmd.Parameters.Add("@RENDIMENTO", SqlDbType.VarChar).Value = obj.Rendimento ?? string.Empty; ;
-                    cmd.Parameters.Add("@DICA", SqlDbType.VarChar).Value = obj.Dica ?? string.Empty; ;
+                    cmd.Parameters.Add("@INGREDIENTES", SqlDbType.VarChar).Value = obj.Ingredientes;
+                    cmd.Parameters.Add("@MODO_PREPARO", SqlDbType.VarChar).Value = obj.Modo_Preparo;
+                    cmd.Parameters.Add("@NOME_REC", SqlDbType.VarChar).Value = obj.Nome_Receita;
+                    cmd.Parameters.Add("@RESUMO", SqlDbType.VarChar).Value = obj.Resumo;
+                    cmd.Parameters.Add("@RENDIMENTO", SqlDbType.VarChar).Value = obj.Rendimento;
+                    cmd.Parameters.Add("@DICA", SqlDbType.VarChar).Value = obj.Dica;
                     cmd.Parameters.Add("@PUBLICADA", SqlDbType.Bit).Value = obj.Publicada;
-                    cmd.Parameters.Add("@FOTO", SqlDbType.VarChar).Value = obj.Foto ?? string.Empty;
+                    cmd.Parameters.Add("@FOTO", SqlDbType.VarChar).Value = obj.Foto;
+
+                    foreach (SqlParameter parameter in cmd.Parameters)
+                    {
+                        if (parameter.Value == null)
+                        {
+                            parameter.Value = DBNull.Value;
+                        }
+                    }
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -238,6 +245,68 @@ namespace GastroHelp.DataAccess
                                 INNER JOIN USUARIO U ON (U.ID_USUARIO = R.ID_USUARIO)
                                 INNER JOIN CATEGORIA C ON (C.ID_CATEGORIA = R.ID_CATEGORIA)
                                 WHERE R.ID_RECEITA IN (SELECT ID_RECEITA FROM FAVORITO WHERE ID_USUARIO = @ID_USUARIO);";
+
+                using (SqlCommand cmd = new SqlCommand(strSQL))
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.Parameters.Add("@ID_USUARIO", SqlDbType.Int).Value = obj.Id_Usuario;
+                    cmd.CommandText = strSQL;
+
+                    var dataReader = cmd.ExecuteReader();
+                    var dt = new DataTable();
+                    dt.Load(dataReader);
+                    conn.Close();
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        var receita = new Receita()
+                        {
+
+                            Id_Receita = Convert.ToInt32(row["ID_RECEITA"]),
+                            Nome_Receita = row["NOME_REC"].ToString(),
+                            Resumo = row["RESUMO"].ToString(),
+                            Categoria = new Categoria()
+                            {
+                                Id_Categoria = Convert.ToInt32(row["ID_CATEGORIA"]),
+                                Nome = row["NOME_CATEGORIA"].ToString()
+                            },
+                            Usuario = new Usuario()
+                            {
+                                Id_Usuario = Convert.ToInt32(row["ID_USUARIO"]),
+                                Nome = row["NOME_USUARIO"].ToString()
+                            },
+                            Nivel_Dificuldade = row["NIVEL_DIFICULDADE"].ToString(),
+                            Ingredientes = row["INGREDIENTES"].ToString(),
+                            Modo_Preparo = row["MODO_PREPARO"].ToString(),
+                            Rendimento = row["RENDIMENTO"].ToString(),
+                            Dica = row["DICA"].ToString(),
+                            DataCadastro = Convert.ToDateTime(row["DATA_CADASTRO"]),
+                            Publicada = Convert.ToBoolean(row["PUBLICADA"]),
+                            Foto = row["FOTO"].ToString(),
+                            QtdFavorito = Convert.ToInt32(row["QTD_FAVORITO"])
+                        };
+                        lst.Add(receita);
+                    }
+
+                    return lst;
+                }
+            }
+        }
+
+        public List<Receita> BuscarMinhasReceitas(Usuario obj)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
+            {
+                var lst = new List<Receita>();
+                string strSQL = @"SELECT 
+	                                R.*,
+	                                U.NOME AS NOME_USUARIO,
+	                                C.NOME AS NOME_CATEGORIA
+                                FROM RECEITA R 
+                                INNER JOIN USUARIO U ON (U.ID_USUARIO = R.ID_USUARIO)
+                                INNER JOIN CATEGORIA C ON (C.ID_CATEGORIA = R.ID_CATEGORIA)
+                                WHERE R.ID_USUARIO = @ID_USUARIO;";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
