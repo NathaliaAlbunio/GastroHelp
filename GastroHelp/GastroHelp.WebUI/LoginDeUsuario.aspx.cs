@@ -38,6 +38,10 @@ namespace GastroHelp.WebUI
             }
             else
             {
+                if (obj.Moderador)
+                {
+                    Response.Redirect("AprovacaoDeReceita.aspx");
+                }
                 Response.Redirect("Default.aspx");
             }
         }

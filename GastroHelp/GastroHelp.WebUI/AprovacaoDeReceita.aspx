@@ -26,10 +26,16 @@
                         </p>
 
 
-                        <button class="btn btn-dangerous">
+                        <button class="btn btn-primary">
                             Ver mais...
                         </button>
-                        
+                        <button class="btn btn-success">
+                            Aprovar
+                        </button>
+                        <button class="btn btn-danger">
+                            Recusar
+                        </button>
+
                     </div>
                 </div>
             </div>
@@ -52,13 +58,19 @@
                             <button class="btn btn-primary">
                                 Ver mais...
                             </button>
-                           
+                            <button class="btn btn-success">
+                                Aprovar
+                            </button>
+                            <button class="btn btn-danger">
+                                Recusar
+                            </button>
+
                         </p>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
-   
+
 </asp:Content>

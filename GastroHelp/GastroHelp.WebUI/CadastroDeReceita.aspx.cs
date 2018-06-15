@@ -37,6 +37,12 @@ namespace GastroHelp.WebUI
                 LimparCampos();
                 Response.Redirect("~/Default.aspx");
             }
+            else
+            {
+                lblMsg.Text = "Informe todos os campos obrigatórios!";
+                pnlMsg.Visible = true;
+                return;
+            }
         }
 
         private void CarregarCategoria()
@@ -61,7 +67,6 @@ namespace GastroHelp.WebUI
 
         private bool Validar()
         {
-
             if (string.IsNullOrWhiteSpace(txtNomeDaReceita.Text))
                 return false;
 
@@ -81,6 +86,9 @@ namespace GastroHelp.WebUI
                 return false;
 
             if (string.IsNullOrWhiteSpace(txtRendimento.Text))
+                return false;
+
+            if (string.IsNullOrWhiteSpace(fupArquivo.FileName))
                 return false;
 
             return true;
@@ -105,13 +113,23 @@ namespace GastroHelp.WebUI
             obj.Categoria = new Categoria() { Id_Categoria = Convert.ToInt32(ddlCategoria.SelectedValue) };
             obj.Dica = txtDicas.Text;
             obj.Rendimento = txtRendimento.Text;
-            obj.Foto = Path.GetFileName(fupArquivo.FileName);
 
-            if (!Directory.Exists(Server.MapPath("~/Uploads")))
-                Directory.CreateDirectory(Server.MapPath("~/Uploads"));
+            if (fupArquivo.HasFile)
+            {
+                obj.Foto = Path.GetFileName(fupArquivo.FileName);
 
-            var savedFileName = Path.Combine(Server.MapPath("~/Uploads"), Path.GetFileName(fupArquivo.FileName));
-            fupArquivo.SaveAs(savedFileName);
+                if (!Directory.Exists(Server.MapPath("~/Uploads")))
+                    Directory.CreateDirectory(Server.MapPath("~/Uploads"));
+
+                var savedFileName = Path.Combine(Server.MapPath("~/Uploads"), Path.GetFileName(fupArquivo.FileName));
+                fupArquivo.SaveAs(savedFileName);
+            }
+            else
+            {
+                lblMsg.Text = "Faça o upload de uma imagem!";
+                pnlMsg.Visible = true;
+                return;
+            }
 
             new ReceitaDAO().Inserir(obj);
         }

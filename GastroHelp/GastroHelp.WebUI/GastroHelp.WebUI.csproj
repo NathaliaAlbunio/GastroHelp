@@ -247,7 +247,6 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="TelaPerfilUsuario.aspx" />
-    <Content Include="TelaPerfilAdm.aspx" />
     <Content Include="TelaReceita.aspx" />
     <Content Include="Uploads\logo fiep - laboratórios.JPG" />
     <Content Include="Web.config" />
@@ -340,13 +339,6 @@
     </Compile>
     <Compile Include="TelaPerfilUsuario.aspx.designer.cs">
       <DependentUpon>TelaPerfilUsuario.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TelaPerfilAdm.aspx.cs">
-      <DependentUpon>TelaPerfilAdm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TelaPerfilAdm.aspx.designer.cs">
-      <DependentUpon>TelaPerfilAdm.aspx</DependentUpon>
     </Compile>
     <Compile Include="TelaReceita.aspx.cs">
       <DependentUpon>TelaReceita.aspx</DependentUpon>

@@ -9,6 +9,15 @@
         <div class="col-md-12">
             <div class="main-login">
                 <h1><b>Cadastro de Receita</b></h1>
+                <asp:Panel ID="pnlMsg" runat="server" Visible="false">
+                    <div class="form-group">
+                        <div class="col-md-12 text-center">
+                            <div class="alert alert-danger" role="alert">
+                                <asp:Label ID="lblMsg" runat="server" />
+                            </div>
+                        </div>
+                    </div>
+                </asp:Panel>
                 <!-- NOME DA RECEITA -->
                 <div class="form-group">
                     <div class="col-md-8">
