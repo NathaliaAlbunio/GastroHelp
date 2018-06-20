@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <a href="<%# ResolveUrl(string.Format("~/TelaReceita.aspx?id={0}", Eval("Id_Receita"))) %>">
-                        <img class="img-responsive" src="<%# ResolveUrl((string)Eval("FotoUrl")) %>" />
+                        <img class="img-responsive" style="border:solid"  width:"250px"  height:"300px" src="<%# ResolveUrl((string)Eval("FotoUrl")) %>" />
                     </a>
                 </div>
             </div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GastroHelp.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,17 @@ namespace GastroHelp.WebUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (IsPostBack)
+                return;
+            CarregarGridView();
+        }
+
+        private void CarregarGridView()
+        {
+            var lstReceita = new ReceitaDAO().BuscarTodos();
+            grdAprovacao.DataSource = lstReceita;
+            grdAprovacao.DataBind();
         }
     }
 }
+
