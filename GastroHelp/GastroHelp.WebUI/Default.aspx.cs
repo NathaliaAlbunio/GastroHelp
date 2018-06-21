@@ -11,7 +11,8 @@ namespace GastroHelp.WebUI
         {
             if (IsPostBack)
                 return;
-            var lst = new ReceitaDAO().BuscarTodos();
+            //buscando apenas as receitas aprovadas (publicadas)
+            var lst = new ReceitaDAO().BuscarAprovadas();
             //buscando as 10 receitas mais favoritadas
             gridView.DataSource = lst.OrderByDescending(r => r.QtdFavorito).Take(10).ToList();
             gridView.DataBind();

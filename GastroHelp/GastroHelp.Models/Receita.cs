@@ -22,6 +22,15 @@ namespace GastroHelp.Models
         public string Foto { get; set; }
         public int QtdFavorito { get; set; }
 
+
+        public string EstaAceita
+        {
+            get
+            {
+                return this.Publicada ? "Sim" : "Não";
+            }
+        }
+
         public string Subtitulo
         {
             get
