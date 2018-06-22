@@ -2,6 +2,7 @@
 using GastroHelp.Models;
 using System;
 using System.IO;
+using System.Security.Principal;
 using System.Web;
 
 namespace GastroHelp.WebUI
@@ -25,8 +26,21 @@ namespace GastroHelp.WebUI
                 lblModoDePreparo.Text = obj.Modo_Preparo;
                 lblResumo.Text = obj.Resumo;
 
-                var lstFavoritos = new FavoritoDAO().Buscar(obj.Id_Receita, ((Usuario)HttpContext.Current.User).Id_Usuario);
-                btnFavoritar.Visible = !(lstFavoritos != null && lstFavoritos.Count > 0);
+                //usuário está logado, vai mostrar o botão de favoritos
+                if (HttpContext.Current.User.GetType() != typeof(WindowsPrincipal))
+                {
+                    var lstFavoritos = new FavoritoDAO().Buscar(obj.Id_Receita, ((Usuario)HttpContext.Current.User).Id_Usuario);
+                    btnFavoritar.Visible = !(lstFavoritos != null && lstFavoritos.Count > 0);
+                    txtComentario.Visible = true;
+                    btnEnviar.Visible = true;
+                }
+                else
+                {
+                    //senão esconde o botão de favoritos
+                    btnFavoritar.Visible = false;
+                    txtComentario.Visible = false;
+                    btnEnviar.Visible = false;
+                }
 
                 var lst = new ComentarioDAO().BuscarPorReceita(obj.Id_Receita);
                 gridViewComentario.DataSource = lst;

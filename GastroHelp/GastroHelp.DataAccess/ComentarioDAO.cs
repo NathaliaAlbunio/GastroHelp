@@ -46,6 +46,7 @@ namespace GastroHelp.DataAccess
                 string strSQL = @"SELECT 
                                       C.*,
                                       U.ID_USUARIO,
+                                      U.NOME AS NOME_USUARIO,
                                       R.ID_RECEITA
                                   FROM COMENTARIO C 
                                   INNER JOIN USUARIO U ON (U.ID_USUARIO = C.ID_USUARIO)
@@ -74,6 +75,7 @@ namespace GastroHelp.DataAccess
                             Usuario = new Usuario()
                             {
                                 Id_Usuario = Convert.ToInt32(row["ID_USUARIO"]),
+                                Nome = row["NOME_USUARIO"].ToString()
                             },
                             Receita = new Receita()
                             {

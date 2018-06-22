@@ -16,6 +16,7 @@ create table usuario
 );
 GO
 
+
 insert into usuario (nome, senha, email, nome_usuario, moderador)
 values ('Moderador', '123', 'moderador@gastrohelp.com.br', 'moderador', 1);
 insert into usuario (nome, senha, email, nome_usuario, moderador)
@@ -56,6 +57,8 @@ create table receita
 	data_cadastro		datetime not null default getdate()
 );
 
+
+
 create table favorito 
 (
 	id_favorito		integer identity(1,1) primary key,
@@ -91,3 +94,4 @@ create table comentario
 	DataHora		Datetime not null default getdate()
 );
 GO
+

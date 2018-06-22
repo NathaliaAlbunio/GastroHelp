@@ -13,7 +13,7 @@
                     <asp:Label ID="lblNomeUsuario" runat="server" class="control-label" />
                 </div>
             </div>
-            <div class="row" style="padding: 20px 0px; border-bottom: 1px solid gray;">
+            <%--<div class="row" style="padding: 20px 0px; border-bottom: 1px solid gray;">
                 <div class="col-md-2">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                 </div>
@@ -44,7 +44,7 @@
                 <div class="col-md-10">
                     <a style="color: #000000 !important;" href="#">CONFIGURAÇÕES</a>
                 </div>
-            </div>
+            </div>--%>
         </div>
         <div class="col-md-9">
             <div class="row">
