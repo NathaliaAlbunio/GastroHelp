@@ -11,11 +11,14 @@ namespace GastroHelp.DataAccess
     {
         public void Inserir(Usuario obj)
         {
+            //Está sendo criado uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
+                //Está inserindo dados na tabela usuario depois que foi cadastrada
                 string strSQL = @"INSERT INTO USUARIO (NOME, SENHA, EMAIL, NOME_USUARIO, MODERADOR) 
                                   VALUES (@NOME, @SENHA, @EMAIL, @NOME_USUARIO, @MODERADOR);";
 
+                //Foi criado um comando sql que será executado no banco
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
@@ -32,9 +35,11 @@ namespace GastroHelp.DataAccess
                             parameter.Value = DBNull.Value;
                         }
                     }
-
+                    //Abrindo a conexão
                     conn.Open();
-                    cmd.ExecuteNonQuery();
+                    //Executando a instrução SQL
+                    cmd.ExecuteNonQuery(); //É usado para executar instrução SQL sem retorno de dados, no caso é o insert
+                    //Fechando a conexão
                     conn.Close();
                 }
             }
@@ -42,6 +47,7 @@ namespace GastroHelp.DataAccess
 
         public List<Usuario> BuscarTodos()
         {
+            //Está sendo criado uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 var lst = new List<Usuario>();
@@ -92,7 +98,7 @@ namespace GastroHelp.DataAccess
                     cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha;
                     cmd.CommandText = strSQL;
 
-                    var dataReader = cmd.ExecuteReader();
+                    var dataReader = cmd.ExecuteReader();  //resgatar os dados da forma mais rápida possível
                     var dt = new DataTable();
                     dt.Load(dataReader);
                     conn.Close();

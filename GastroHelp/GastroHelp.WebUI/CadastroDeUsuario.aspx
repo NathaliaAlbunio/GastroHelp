@@ -7,6 +7,15 @@
     <div class="row main">
         <div class="main-login main-center">
             <h5><b>Cadastre-se no GastroHelp® é grátis</b></h5>
+            <asp:Panel ID="pnlMsg" runat="server" Visible="false">
+                <div class="form-group">
+                    <div class="col-md-12 text-center">
+                        <div class="alert alert-danger" role="alert">
+                            <asp:Label ID="lblMsg" runat="server" />
+                        </div>
+                    </div>
+                </div>
+            </asp:Panel>
             <!-- NOME -->
             <div class="form-group">
                 <label for="name" class="cols-sm-2 control-label">Seu Nome</label>
@@ -50,7 +59,7 @@
                 </div>
             </div>
             <!-- CONFIRME SUA SENHA -->
-           <%-- <div class="form-group">
+            <%-- <div class="form-group">
                 <label for="confirm" class="cols-sm-2 control-label">Confirme sua senha</label>
                 <div class="cols-sm-10">
                     <div class="input-group">

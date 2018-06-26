@@ -16,13 +16,16 @@ namespace GastroHelp.WebUI
                 Response.Redirect("~/LoginDeUsuario.aspx");
             }
 
+            //APARECERÁ SE O USUÁRIO ESTÁ LOGADO
             var usuarioLogado = (Usuario)User;
             lblNomeUsuario.Text = usuarioLogado.Nome;
 
+            ///APARECER AS RECEITAS POSTADAS PELO USER
             var lstMinhasReceitas = new ReceitaDAO().BuscarMinhasReceitas(usuarioLogado);
             grdMinhasReceitas.DataSource = lstMinhasReceitas;
             grdMinhasReceitas.DataBind();
 
+            ///APARECER AS RECEITAS FAVORITAS PELO USER
             var lstFavoritos = new ReceitaDAO().BuscarPorFavoritos(usuarioLogado);
             grdMeusFavoritos.DataSource = lstFavoritos;
             grdMeusFavoritos.DataBind();

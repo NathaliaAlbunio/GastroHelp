@@ -31,6 +31,15 @@ namespace GastroHelp.WebUI
 
                 Response.Redirect("~/Default.aspx");
             }
+            else
+            {
+                var obj = new Usuario();
+                new UsuarioDAO().Inserir(obj);
+
+                lblMsg.Text = "Login ou senha inválido!";
+                pnlMsg.Visible = true;
+                return;
+            }
         }
 
         private void LimparCampos()
@@ -38,7 +47,6 @@ namespace GastroHelp.WebUI
             TxtNome.Text = string.Empty;
             TxtSenha.Text = string.Empty;
             TxtNomeUsuario.Text = string.Empty;
-            /*xtConfirmarSenha.Text = string.Empty;*/
             Txtemail.Text = string.Empty;
 
         }
@@ -58,8 +66,6 @@ namespace GastroHelp.WebUI
             if (string.IsNullOrWhiteSpace(TxtSenha.Text))
                 return false;
 
-            //if (string.IsNullOrWhiteSpace(TxtConfirmarSenha.Text))
-            //    return false;
 
             return true;
         }
@@ -71,7 +77,6 @@ namespace GastroHelp.WebUI
             obj.Senha = TxtSenha.Text;
             obj.Email = Txtemail.Text;
             obj.Nome_Usuario = TxtNomeUsuario.Text;
-
             new UsuarioDAO().Inserir(obj);
         }
     }
