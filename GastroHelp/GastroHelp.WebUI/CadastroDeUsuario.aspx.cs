@@ -36,7 +36,7 @@ namespace GastroHelp.WebUI
                 var obj = new Usuario();
                 new UsuarioDAO().Inserir(obj);
 
-                lblMsg.Text = "Login ou senha inválido!";
+                lblMsg.Text = "Preencha todos os campos!";
                 pnlMsg.Visible = true;
                 return;
             }

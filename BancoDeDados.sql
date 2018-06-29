@@ -37,6 +37,8 @@ values
 ('Salgados'),
 ('Assados'),
 ('Fritos'),
+('Massas'),
+('Ensopados'),
 ('Cozidos');
 GO
 
