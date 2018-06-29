@@ -16,6 +16,7 @@ create table usuario
 );
 GO
 
+
 insert into usuario (nome, senha, email, nome_usuario, moderador)
 values ('Moderador', '123', 'moderador@gastrohelp.com.br', 'moderador', 1);
 insert into usuario (nome, senha, email, nome_usuario, moderador)
@@ -36,6 +37,8 @@ values
 ('Salgados'),
 ('Assados'),
 ('Fritos'),
+('Massas'),
+('Ensopados'),
 ('Cozidos');
 GO
 
@@ -55,6 +58,8 @@ create table receita
 	foto				varchar(1000),
 	data_cadastro		datetime not null default getdate()
 );
+
+
 
 create table favorito 
 (

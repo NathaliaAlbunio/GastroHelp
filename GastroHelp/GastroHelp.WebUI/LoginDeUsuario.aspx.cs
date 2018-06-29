@@ -9,19 +9,20 @@ namespace GastroHelp.WebUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack) //Verifica se é a primeira vez que a página carrega
+            //Verifica se é a primeira vez que a página carrega
+            if (IsPostBack)
                 return;
         }
 
         protected void btnEntrar_Click(object sender, EventArgs e)
         {
-            //Declando uma variável para receber o login
+            //Declarando uma variável para receber o login
             var usuario = new Usuario();
             usuario.Nome_Usuario = TxtNomeUsuario.Text;
             usuario.Senha = TxtSenha.Text;
 
-            var obj = new UsuarioDAO().Logar(usuario);
             //Se não exister o dado de login, aparecerá a mensagem de erro
+            var obj = new UsuarioDAO().Logar(usuario);
             if (obj == null)
             {
                 lblMsg.Text = "Login ou senha inválido!";
@@ -29,7 +30,7 @@ namespace GastroHelp.WebUI
                 return;
             }
 
-            //usuario que eu busquei no banco de dados e armazeno no cache do navegador
+            //Usuário que eu busquei no banco de dados e armazeno no cache do navegador
             var userData = new JavaScriptSerializer().Serialize(obj);
             FormsAuthenticationUtil.SetCustomAuthCookie(obj.Nome_Usuario, userData, false);
 
@@ -38,12 +39,15 @@ namespace GastroHelp.WebUI
                 Response.Redirect("LoginDeUsuario.aspx");
             }
             else
-            {//Se o bit moderador estiver verdadeiro ele envia pra tela de aprovação de receita
+            {
+                //Se o bit moderador estiver verdadeiro ele envia pra tela de aprovação de receita
                 if (obj.Moderador)
                 {
-                    Response.Redirect("AprovacaoDeReceita.aspx"); //Redireciona para a tela de aprovação
+                    //Redireciona para a tela de aprovação
+                    Response.Redirect("AprovacaoDeReceita.aspx");
                 }
-                Response.Redirect("Default.aspx"); //Redireciona para a tela default
+                //Redireciona para a tela default
+                Response.Redirect("Default.aspx");
             }
         }
     }
